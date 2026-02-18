@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASE | Corporate Website</title>
+  <style>
+    :root {
+      --primary: #001F3F;
+      --accent: #004080;
+      --text: #111827;
+      --muted: #4b5563;
+      --border: #d1d5db;
+      --bg: #ffffff;
+      --panel: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, Arial, sans-serif;
+      background: linear-gradient(180deg, #eef3f8 0%, #f8fafc 20%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.65;
+      font-smooth: antialiased;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      border-bottom: 1px solid #c8d3df;
+      padding: 56px 0 28px;
+      background: linear-gradient(180deg, #ffffff 0%, #f3f7fb 100%);
+    }
+
+    .logo {
+      margin: 0 0 8px;
+      text-align: center;
+      font-size: 2.55rem;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      font-weight: 650;
+    }
+
+    .tagline {
+      margin: 0 0 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 16px;
+      box-shadow: 0 8px 24px rgba(0, 31, 63, 0.08);
+    }
+
+    nav {
+      position: sticky;
+      top: 10px;
+      z-index: 20;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: 550;
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+      border-bottom: 2px solid transparent;
+      padding-bottom: 3px;
+    }
+
+    nav a:focus,
+    nav a:hover {
+      border-bottom-color: var(--primary);
+      outline: none;
+    }
+
+    main {
+      padding: 34px 0 64px;
+    }
+
+    section {
+      padding: 48px 48px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin: 0 0 22px;
+      background: #ffffff;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      color: var(--primary);
+      font-size: 1.45rem;
+      line-height: 1.3;
+      font-weight: 620;
+      letter-spacing: 0.01em;
+      padding-left: 11px;
+      border-left: 3px solid var(--accent);
+    }
+
+    h3 {
+      margin: 24px 0 8px;
+      font-size: 1rem;
+      font-weight: 620;
+      color: var(--text);
+    }
+
+    p {
+      margin: 0 0 13px;
+      max-width: 76ch;
+      font-size: 1rem;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .list {
+      margin: 10px 0 0;
+      padding-left: 18px;
+      max-width: 80ch;
+      columns: 2;
+      column-gap: 30px;
+    }
+
+    .list li {
+      margin-bottom: 8px;
+      break-inside: avoid;
+    }
+
+    .card {
+      border: 1px solid #cfd8e3;
+      border-radius: 6px;
+      padding: 18px;
+      margin-top: 14px;
+      background: var(--panel);
+    }
+
+    a.inline-link {
+      color: var(--primary);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a.inline-link:hover {
+      color: var(--accent);
+      transition: color 0.2s ease;
+    }
+
+    footer {
+      border-top: 1px solid #c8d3df;
+      padding: 28px 0 34px;
+      background: #f4f8fc;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin: 0 0 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus {
+      text-decoration: underline;
+    }
+
+    .svh-line {
+      margin: 10px 0 0;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .legal-line {
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 36px 0 20px;
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .logo {
+        font-size: 2.2rem;
+      }
+
+      .tagline {
+        font-size: 0.9rem;
+      }
+
+      nav ul {
+        justify-content: center;
+        gap: 10px 14px;
+        border-radius: 16px;
+        padding: 10px;
+      }
+
+      nav a {
+        font-size: 0.92rem;
+      }
+
+      section {
+        padding: 26px 18px;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+        padding-left: 10px;
+      }
+
+      .list {
+        columns: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 class="logo">ASE</h1>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about-ase">About ASE</a></li>
+          <li><a href="#what-ase-enables">What ASE Enables</a></li>
+          <li><a href="#governance-institutional-discipline">Governance &amp; Institutional Discipline</a></li>
+          <li><a href="#operating-companies">Operating Companies</a></li>
+          <li><a href="#capital-partnerships">Capital &amp; Partnerships</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about-ase" aria-labelledby="about-title">
+      <h2 id="about-title">About ASE</h2>
+      <p>ASE is a group-level enabling and support platform designed to strengthen institutional readiness, scalability, and technical consistency across operating environments.</p>
+      <p>ASE operates within the governance and stewardship framework of <a class="inline-link" href="https://sol-ventures.com" target="_blank" rel="noopener noreferrer">SVH</a>, with alignment to group-level governance standards established at SVH.</p>
+      <p class="muted">ASE provides high-level institutional coordination and support in selected regions.</p>
+    </section>
+
+    <section id="what-ase-enables" aria-labelledby="enables-title">
+      <h2 id="enables-title">What ASE Enables</h2>
+      <ul class="list">
+        <li><strong>Financial enablement:</strong> capital structuring support and institutional finance readiness.</li>
+        <li><strong>Technology and systems:</strong> digital infrastructure standards, platform support, and systems integration frameworks.</li>
+        <li><strong>Engineering standards and design oversight:</strong> technical assurance methods, design controls, and quality baselines.</li>
+        <li><strong>IP and process transfer:</strong> structured transfer of tools, know-how, and repeatable operating methods.</li>
+        <li><strong>Institutional risk mitigation:</strong> risk framework support, scalability controls, and technical indemnity structures where applicable.</li>
+      </ul>
+      <p>ASE does not execute projects and does not replace operating companies.</p>
+    </section>
+
+    <section id="governance-institutional-discipline" aria-labelledby="gov-title">
+      <h2 id="gov-title">Governance &amp; Institutional Discipline</h2>
+      <h3>Governance Philosophy</h3>
+      <p>ASE applies a governance-first approach centered on role clarity, defined accountability, and structured decision pathways.</p>
+      <h3>Risk and Compliance Posture</h3>
+      <p>Institutional risk review, compliance discipline, and technical control mechanisms are embedded in platform-level support activities.</p>
+      <h3>SVH Alignment</h3>
+      <p>ASE remains aligned with group-level governance standards established at <a class="inline-link" href="https://sol-ventures.com" target="_blank" rel="noopener noreferrer">SVH</a>. Internal governance records are maintained through established channels and are not published on this website.</p>
+    </section>
+
+    <section id="operating-companies" aria-labelledby="ops-title">
+      <h2 id="ops-title">Operating Companies</h2>
+      <p>ASE provides institutional enablement, standards, and support structures. Execution is undertaken by operating companies, including EASE, which maintain their own management, delivery, and client relationships.</p>
+      <div class="card" role="region" aria-label="Operating company links">
+        <h3>Direct Operating Company Links</h3>
+        <p><a class="inline-link" href="https://ease-int.com" target="_blank" rel="noopener noreferrer">EASE</a></p>
+      </div>
+      <p class="muted">Project portfolios, delivery capabilities, and operating details are presented by each operating company on its own website.</p>
+    </section>
+
+    <section id="capital-partnerships" aria-labelledby="capital-title">
+      <h2 id="capital-title">Capital &amp; Partnerships</h2>
+      <p>ASE engages with banks, long-term investors, and strategic partners through an institutional lens focused on structure, governance compatibility, and risk-aware execution support.</p>
+      <p>The platform orientation is long-term and stewardship-based, with emphasis on durable operating frameworks and disciplined counterpart engagement.</p>
+      <p>No fundraising solicitations, commitments, or capital guarantees are made on this website.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <ul class="footer-links" aria-label="Group and operating company links">
+        <li><a href="https://sol-ventures.com" target="_blank" rel="noopener noreferrer">SVH</a></li>
+        <li><a href="https://ease-int.com" target="_blank" rel="noopener noreferrer">EASE</a></li>
+      </ul>
+      <p class="svh-line">Part of the SVH ecosystem</p>
+      <p class="legal-line">Information is provided for institutional reference and does not constitute an offer, commitment, or guarantee.</p>
+      <p class="legal-line">© 2026 ASE. All rights reserved for institutional reference purposes only.</p>
+    </div>
+  </footer>
+</body>
+</html>
