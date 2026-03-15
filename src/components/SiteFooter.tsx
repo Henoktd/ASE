@@ -11,7 +11,7 @@ export default function SiteFooter() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-ase-black text-ase-white">
+    <footer className="ase-section-dark text-ase-white">
       <div className="ase-container grid gap-12 py-16 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3">

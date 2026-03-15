@@ -4,7 +4,7 @@ import { navLinks, site } from "@/lib/site";
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-ase-black text-ase-white">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(31,31,31,0.78)] text-ase-white backdrop-blur-xl">
       <div className="ase-container flex items-center justify-between py-6">
         <Link href="/" className="flex items-center gap-4">
           <Image
@@ -17,7 +17,7 @@ export default function SiteHeader() {
           />
           <span className="sr-only">{site.fullName}</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.28em] text-ase-gray lg:flex">
+        <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.28em] text-[#b8b6b1] lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -29,7 +29,7 @@ export default function SiteHeader() {
           ))}
         </nav>
       </div>
-      <nav className="ase-container flex gap-4 overflow-x-auto pb-5 text-xs uppercase tracking-[0.28em] text-ase-gray lg:hidden">
+      <nav className="ase-container flex gap-4 overflow-x-auto pb-5 text-xs uppercase tracking-[0.28em] text-[#b8b6b1] lg:hidden">
         {navLinks.map((link) => (
           <Link
             key={link.href}

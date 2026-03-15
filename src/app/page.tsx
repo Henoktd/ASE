@@ -151,7 +151,7 @@ const perspectiveHighlights = [
 export default function Home() {
   return (
     <>
-      <section className="relative overflow-hidden bg-ase-black text-ase-white">
+      <section className="ase-section-dark relative overflow-hidden text-ase-white">
         <div className="pointer-events-none absolute inset-0 ase-hero-media">
           <video
             className="ase-hero-video"
@@ -208,7 +208,7 @@ export default function Home() {
             className="ase-fade-up grid gap-4"
             style={{ animationDelay: "450ms" }}
           >
-            <div className="ase-rotator ase-grid rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="ase-rotator ase-panel-dark ase-grid p-6">
               <Image
                 src="/Brand/01%20Logo/SVG/White/white-SYMBOL.svg"
                 alt="ASE symbol"
@@ -232,7 +232,7 @@ export default function Home() {
               <Link
                 key={item.title}
                 href={item.href}
-                className="border border-white/15 bg-white/5 px-6 py-6 transition-colors hover:bg-white/10"
+                className="ase-panel-dark px-6 py-6 transition-colors hover:bg-white/10"
               >
                 <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
                   {item.label}
@@ -256,7 +256,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="ase-section-light">
         <div className="ase-container grid gap-8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -294,7 +294,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="ase-section-paper">
         <div className="ase-container grid gap-8 pb-20 lg:grid-cols-3">
           {narrative.map((item) => (
             <div key={item.title} className="ase-card">
@@ -311,7 +311,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-black text-ase-white">
+      <section className="ase-section-dark text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -333,7 +333,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4">
             {platformStages.map((stage) => (
-              <div key={stage.title} className="border border-white/15 px-6 py-5">
+              <div key={stage.title} className="ase-panel-dark px-6 py-5">
                 <h3 className="text-lg font-semibold">{stage.title}</h3>
                 <p className="text-sm text-ase-gray">{stage.description}</p>
               </div>
@@ -342,7 +342,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-graphite text-ase-white">
+      <section className="ase-section-graphite text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -364,7 +364,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4">
             {projectHighlights.map((project) => (
-              <div key={project.name} className="border border-white/15 px-6 py-6">
+              <div key={project.name} className="ase-panel-dark px-6 py-6">
                 <div className="flex items-center justify-between text-xs uppercase tracking-[0.3em] text-ase-gray">
                   <span>{project.location}</span>
                   <span>Featured</span>
@@ -377,7 +377,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="ase-section-light">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.2fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -417,7 +417,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-black text-ase-white">
+      <section className="ase-section-dark text-ase-white">
         <div className="ase-container grid gap-8 py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -441,7 +441,7 @@ export default function Home() {
             {perspectiveHighlights.map((item) => (
               <div
                 key={item.title}
-                className="border border-white/15 px-5 py-5"
+                className="ase-panel-dark px-5 py-5"
               >
                 <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
                   {item.label}
@@ -453,7 +453,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-ase-graphite text-ase-white">
+      <section className="ase-section-graphite text-ase-white">
         <div className="ase-container flex flex-col gap-6 py-20 text-center">
           <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
             Partner with ASE
