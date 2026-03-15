@@ -13,8 +13,7 @@
 
 @font-face {
   font-family: "Aktiv Grotesk Extended";
-  src: url("/Brand/04%20Fonts/TrialStaticFonts/AktivGroteskEx_Trial_Rg.ttf")
-    format("truetype");
+  src: url("/fonts/aktiv-grotesk-ex-rg.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -22,8 +21,7 @@
 
 @font-face {
   font-family: "Aktiv Grotesk Extended";
-  src: url("/Brand/04%20Fonts/TrialStaticFonts/AktivGroteskEx_Trial_Bd.ttf")
-    format("truetype");
+  src: url("/fonts/aktiv-grotesk-ex-bd.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

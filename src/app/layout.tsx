@@ -7,11 +7,11 @@ import SiteHeader from "@/components/SiteHeader";
 const dmSans = localFont({
   src: [
     {
-      path: "../../public/Brand/04 Fonts/DMSans-VariableFont_opsz,wght.ttf",
+      path: "./fonts/dm-sans-var.ttf",
       style: "normal",
     },
     {
-      path: "../../public/Brand/04 Fonts/DMSans-Italic-VariableFont_opsz,wght.ttf",
+      path: "./fonts/dm-sans-italic-var.ttf",
       style: "italic",
     },
   ],
