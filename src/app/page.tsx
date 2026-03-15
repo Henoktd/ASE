@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -208,20 +209,23 @@ export default function Home() {
             style={{ animationDelay: "450ms" }}
           >
             <div className="ase-rotator ase-grid rounded-3xl border border-white/10 bg-white/5 p-6">
-              <img
+              <Image
                 src="/Brand/01%20Logo/SVG/White/white-SYMBOL.svg"
                 alt="ASE symbol"
-                loading="lazy"
+                width={640}
+                height={640}
               />
-              <img
+              <Image
                 src="/Brand/01%20Logo/SVG/White/white-VERTICAL.svg"
                 alt="ASE vertical mark"
-                loading="lazy"
+                width={640}
+                height={640}
               />
-              <img
+              <Image
                 src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
                 alt="ASE horizontal mark"
-                loading="lazy"
+                width={640}
+                height={640}
               />
             </div>
             {heroFeatures.map((item) => (

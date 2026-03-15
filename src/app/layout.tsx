@@ -1,12 +1,21 @@
 import type { Metadata } from "next";
-import { DM_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 
-const dmSans = DM_Sans({
+const dmSans = localFont({
+  src: [
+    {
+      path: "../../public/Brand/04 Fonts/DMSans-VariableFont_opsz,wght.ttf",
+      style: "normal",
+    },
+    {
+      path: "../../public/Brand/04 Fonts/DMSans-Italic-VariableFont_opsz,wght.ttf",
+      style: "italic",
+    },
+  ],
   variable: "--font-dm-sans",
-  subsets: ["latin"],
   display: "swap",
 });
 
