@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --ase-black: #1f1f1f;
-  --ase-graphite: #3a3a3a;
+  --ase-black: #272729;
+  --ase-blue: #38469d;
+  --ase-red: #c52b35;
+  --ase-graphite: #30344a;
   --ase-gray: #8a8a8a;
   --ase-white: #ffffff;
-  --ase-paper: #f6f4ef;
-  --ase-paper-strong: #ece8df;
-  --ase-border: rgba(31, 31, 31, 0.12);
-  --ase-border-soft: rgba(31, 31, 31, 0.08);
-  --ase-muted: rgba(31, 31, 31, 0.7);
+  --ase-paper: #f5f5f5;
+  --ase-paper-strong: #ebebeb;
+  --ase-border: rgba(39, 39, 41, 0.12);
+  --ase-border-soft: rgba(39, 39, 41, 0.08);
+  --ase-muted: rgba(39, 39, 41, 0.72);
   --ase-grid: rgba(255, 255, 255, 0.08);
-  --ase-grid-dark: rgba(31, 31, 31, 0.08);
+  --ase-grid-dark: rgba(39, 39, 41, 0.08);
   --ase-panel: rgba(255, 255, 255, 0.84);
   --ase-panel-dark: rgba(255, 255, 255, 0.05);
-  --ase-shadow: rgba(31, 31, 31, 0.08);
-  --ase-shadow-deep: rgba(31, 31, 31, 0.18);
+  --ase-shadow: rgba(39, 39, 41, 0.08);
+  --ase-shadow-deep: rgba(39, 39, 41, 0.18);
 }
 
 @font-face {
@@ -36,6 +38,8 @@
 
 @theme inline {
   --color-ase-black: var(--ase-black);
+  --color-ase-blue: var(--ase-blue);
+  --color-ase-red: var(--ase-red);
   --color-ase-graphite: var(--ase-graphite);
   --color-ase-gray: var(--ase-gray);
   --color-ase-white: var(--ase-white);
@@ -55,12 +59,7 @@ html {
 }
 
 body {
-  background: linear-gradient(
-    180deg,
-    var(--ase-white) 0%,
-    var(--ase-paper) 62%,
-    var(--ase-paper-strong) 100%
-  );
+  background: var(--ase-white);
   color: var(--ase-black);
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 }
@@ -99,9 +98,10 @@ body {
   }
 
   .ase-btn-primary {
-    background: linear-gradient(135deg, #2e2e2e 0%, #1f1f1f 100%);
+    background: var(--ase-red);
+    border-color: var(--ase-red);
     color: var(--ase-white);
-    box-shadow: 0 12px 28px rgba(31, 31, 31, 0.18);
+    box-shadow: 0 12px 28px rgba(197, 43, 53, 0.18);
   }
 
   .ase-btn-ghost {
@@ -119,11 +119,7 @@ body {
     border: 1px solid var(--ase-border-soft);
     border-radius: 24px;
     padding: 24px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.94) 0%,
-      rgba(246, 244, 239, 0.96) 100%
-    );
+    background: rgba(255, 255, 255, 0.96);
     box-shadow: 0 22px 44px -34px var(--ase-shadow-deep);
     display: flex;
     flex-direction: column;
@@ -131,7 +127,7 @@ body {
   }
 
   .ase-card-dark {
-    background: linear-gradient(145deg, #303030 0%, #1f1f1f 100%);
+    background: var(--ase-black);
     border-color: rgba(255, 255, 255, 0.1);
     color: var(--ase-white);
   }
@@ -139,11 +135,7 @@ body {
   .ase-panel-soft {
     border: 1px solid var(--ase-border-soft);
     border-radius: 28px;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.9) 0%,
-      rgba(246, 244, 239, 0.96) 100%
-    );
+    background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 24px 48px -34px var(--ase-shadow-deep);
   }
 
@@ -160,37 +152,19 @@ body {
   }
 
   .ase-section-light {
-    background: linear-gradient(
-      180deg,
-      var(--ase-white) 0%,
-      var(--ase-paper) 100%
-    );
+    background: var(--ase-white);
   }
 
   .ase-section-paper {
-    background: linear-gradient(
-      180deg,
-      #f4f2ed 0%,
-      var(--ase-paper-strong) 100%
-    );
+    background: var(--ase-paper);
   }
 
   .ase-section-dark {
-    background: linear-gradient(
-      160deg,
-      #353535 0%,
-      #242424 48%,
-      #1f1f1f 100%
-    );
+    background: var(--ase-blue);
   }
 
   .ase-section-graphite {
-    background: linear-gradient(
-      160deg,
-      #4b4b4b 0%,
-      #3a3a3a 52%,
-      #2d2d2d 100%
-    );
+    background: var(--ase-black);
   }
 
   .ase-hero-media {

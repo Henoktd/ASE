@@ -4,184 +4,165 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About ASE",
   description:
-    "Learn how ASE positions engineering systems, platform strategy, and delivery partners across infrastructure projects.",
+    "Learn how ASE defines structural solutions within an integrated engineering-delivery platform.",
 };
 
 const positioning = [
   {
-    title: "What ASE Is",
+    title: "Who We Are",
     description:
-      "ASE is the engineering systems platform focused on building, testing, and deploying structural solutions for infrastructure.",
+      "ASE is responsible for defining how structural problems are solved within an integrated engineering-delivery platform.",
   },
   {
-    title: "Role in Infrastructure Engineering",
+    title: "What ASE Does",
     description:
-      "ASE connects platform strategy, engineering capability, and delivery execution into one technical ecosystem.",
+      "ASE develops engineering systems, methodologies, and technical standards that are applied and refined through execution.",
   },
   {
-    title: "ASE Engineering Environment",
+    title: "Strategic Role",
     description:
-      "A structured environment where engineering systems are researched, validated, and prepared for implementation.",
+      "ASE builds long-term capability through engineering systems, technical knowledge, and methodological consistency.",
   },
 ];
 
-const aboutModules = [
+const outputs = [
   {
-    title: "Our Story",
+    title: "Structural systems",
     description:
-      "ASE was formed to formalize engineering systems as a platform, ensuring infrastructure projects benefit from repeatable technical intelligence.",
+      "Structural systems designed to solve recurring challenges with greater clarity and repeatability.",
   },
   {
-    title: "Leadership",
+    title: "Design logic",
     description:
-      "Engineering leadership sets system direction, validates performance, and aligns delivery partners to platform goals.",
+      "Clear technical logic for choosing the most effective structural solution for a challenge.",
   },
   {
-    title: "Policies and Standards",
+    title: "Technical frameworks",
     description:
-      "Platform governance, technical standards, and delivery protocols define how ASE operates across projects.",
+      "Standardized approaches and frameworks that make engineering knowledge reusable rather than project-bound.",
   },
 ];
 
 const hierarchy = [
   {
     title: "ASE",
-    description: "Engineering systems platform defining technical direction.",
-  },
-  {
-    title: "SVH",
-    description:
-      "Strategic platform developer guiding infrastructure vision and capital alignment.",
+    description: "Defines and develops engineering systems.",
   },
   {
     title: "EASE",
-    description: "Delivery partner implementing ASE systems in projects.",
+    description: "Applies and delivers these systems in projects.",
+  },
+  {
+    title: "Feedback Loop",
+    description: "Design, application, feedback, and refinement work as one cycle.",
   },
 ];
 
-const initiatives = [
-  "System validation programs for long-span infrastructure.",
-  "Optimization methods that reduce material usage and carbon impact.",
-  "Technical partnership network supporting specialized delivery.",
-  "Engineering knowledge publications for the broader ecosystem.",
+const rationale = [
+  "Traditional engineering is project-based and non-repeatable.",
+  "Traditional engineering often loses knowledge between projects.",
+  "The ASE model is system-based and repeatable.",
+  "The ASE model is designed for knowledge compounding over time.",
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <section className="bg-ase-black text-ase-white">
+      <section className="ase-section-dark text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               About ASE
             </span>
             <h1 className="text-4xl font-semibold">
-              Engineering systems anchored in platform strategy.
+              Defining how structural problems are solved.
             </h1>
-            <p className="text-sm text-ase-gray">
-              ASE establishes a technical backbone for infrastructure, ensuring
-              that engineering systems are designed with clarity, scalability,
-              and delivery readiness.
+            <p className="text-base leading-7 text-ase-gray">
+              ASE defines structural solutions, develops engineering systems,
+              and retains technical knowledge inside an integrated
+              engineering-delivery platform.
             </p>
             <Link href="/platform" className="ase-btn ase-btn-ghost ase-btn-invert">
-              Explore the Platform
+              See the Platform Model
             </Link>
           </div>
           <div className="ase-grid h-64 rounded-3xl border border-white/10" />
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="ase-section-light">
         <div className="ase-container grid gap-8 py-20 md:grid-cols-3">
           {positioning.map((item) => (
-            <div key={item.title} className="ase-card">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-              <p className="text-sm text-ase-muted">{item.description}</p>
-            </div>
+            <article key={item.title} className="ase-card">
+              <h2 className="text-lg font-semibold text-ase-black">{item.title}</h2>
+              <p className="text-base leading-7 text-ase-muted">{item.description}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="ase-section-paper">
         <div className="ase-container grid gap-8 pb-20 md:grid-cols-3">
-          {aboutModules.map((item) => (
-            <div key={item.title} className="ase-card">
-              <h2 className="text-lg font-semibold">{item.title}</h2>
-              <p className="text-sm text-ase-muted">{item.description}</p>
-            </div>
+          {outputs.map((item) => (
+            <article key={item.title} className="ase-card">
+              <h2 className="text-lg font-semibold text-ase-black">{item.title}</h2>
+              <p className="text-base leading-7 text-ase-muted">{item.description}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="bg-ase-graphite text-ase-white">
+      <section className="ase-section-graphite text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.2fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Platform Hierarchy
+              How the Platform Works
             </span>
             <h2 className="text-3xl font-semibold">
-              Clarity across strategy, platform, and delivery.
+              ASE and EASE operate as one system with distinct roles.
             </h2>
-            <p className="text-sm text-ase-gray">
-              ASE operates within a defined hierarchy to maintain strategic
-              alignment and delivery accountability across infrastructure
-              programs.
+            <p className="text-base leading-7 text-ase-gray">
+              ASE defines and develops engineering systems. EASE applies and
+              delivers those systems in projects, creating a continuous loop of
+              design, application, feedback, and refinement.
             </p>
-            <div className="flex flex-wrap gap-3 text-xs uppercase tracking-[0.3em] text-ase-gray">
-              <a
-                href="https://www.sol-ventures.com"
-                className="border border-white/20 px-3 py-2 text-ase-white transition-colors hover:text-ase-gray"
-                target="_blank"
-                rel="noreferrer"
-              >
-                SVH Website
-              </a>
-              <a
-                href="https://www.ease-int.com"
-                className="border border-white/20 px-3 py-2 text-ase-white transition-colors hover:text-ase-gray"
-                target="_blank"
-                rel="noreferrer"
-              >
-                EASE Website
-              </a>
-            </div>
           </div>
           <div className="grid gap-4">
             {hierarchy.map((item) => (
               <div key={item.title} className="border border-white/15 px-6 py-6">
                 <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-sm text-ase-gray">{item.description}</p>
+                <p className="text-base leading-7 text-ase-gray">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-ase-black text-ase-white">
+      <section className="ase-section-dark text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Future Focus
+              Why This Model Exists
             </span>
             <h2 className="text-3xl font-semibold">
-              Initiatives and partnerships shaping infrastructure systems.
+              From project-based engineering to system-based capability.
             </h2>
-            <p className="text-sm text-ase-gray">
-              ASE advances system innovation through targeted initiatives,
-              research partnerships, and delivery collaboration across the
-              infrastructure ecosystem.
+            <p className="text-base leading-7 text-ase-gray">
+              Traditional engineering loses knowledge between projects. The ASE
+              model is designed to make engineering repeatable so knowledge can
+              compound over time.
             </p>
             <Link
-              href="/platform"
+              href="/capabilities"
               className="ase-btn ase-btn-ghost ase-btn-invert"
             >
-              Platform Initiatives
+              Explore Capabilities
             </Link>
           </div>
           <div className="grid gap-4">
-            {initiatives.map((item) => (
+            {rationale.map((item) => (
               <div key={item} className="border border-white/15 px-6 py-5">
-                <p className="text-sm text-ase-gray">{item}</p>
+                <p className="text-base leading-7 text-ase-gray">{item}</p>
               </div>
             ))}
           </div>

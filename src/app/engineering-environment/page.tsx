@@ -43,7 +43,7 @@ const capabilities = [
 export default function EngineeringEnvironmentPage() {
   return (
     <>
-      <section className="bg-ase-black text-ase-white">
+      <section className="ase-section-dark text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">

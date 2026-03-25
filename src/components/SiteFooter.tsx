@@ -1,7 +1,9 @@
 import Link from "next/link";
 import {
   contactEmail,
+  contactPhone,
   linkedInUrl,
+  locationLabel,
   navLinks,
   partnerLinks,
   site,
@@ -20,14 +22,14 @@ export default function SiteFooter() {
               {site.fullName}
             </span>
           </div>
-          <p className="max-w-lg text-sm text-ase-gray">
-            ASE positions engineering systems at the center of infrastructure
-            delivery, connecting strategic development, technical collaboration,
-            and real-world project execution.
+          <p className="max-w-lg text-base leading-7 text-ase-gray">
+            ASE is the engineering intelligence layer of an integrated
+            engineering-delivery platform, building systems that learn through
+            application.
           </p>
           <div className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-            ASE - Engineering Platform | SVH - Strategic Platform Developer |
-            EASE - Delivery Partner
+            ASE - Engineering Intelligence | SVH - Strategic Platform Developer
+            | EASE - Execution Engine
           </div>
         </div>
         <div className="grid gap-8 sm:grid-cols-2">
@@ -43,16 +45,12 @@ export default function SiteFooter() {
               </Link>
             ))}
           </div>
-          <div className="flex flex-col gap-3 text-sm text-ase-gray">
+          <div className="flex flex-col gap-3 text-base leading-7 text-ase-gray">
             <span className="text-xs uppercase tracking-[0.3em]">
               Contact
             </span>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="text-ase-white transition-colors hover:text-ase-gray"
-            >
-              {contactEmail}
-            </a>
+            <span className="text-ase-white">{contactEmail}</span>
+            <span className="text-ase-white">{contactPhone}</span>
             <a
               href={linkedInUrl}
               className="text-ase-white transition-colors hover:text-ase-gray"
@@ -61,7 +59,7 @@ export default function SiteFooter() {
             >
               LinkedIn
             </a>
-            <span>Infrastructure Partnerships | Africa</span>
+            <span>{locationLabel}</span>
             <div className="mt-4 text-xs uppercase tracking-[0.3em] text-ase-gray">
               Partners
             </div>

@@ -1,12 +1,14 @@
 export const site = {
   name: "ASE",
   fullName: "Africa Specialized Engineering",
-  tagline: "Engineering Systems Platform",
+  tagline: "Engineering Intelligence Platform",
   description:
-    "ASE is the engineering systems platform advancing infrastructure design, optimization, and delivery across complex projects.",
+    "ASE develops structural systems that enable demanding projects to span farther, build faster, and use less material.",
 };
 
-export const contactEmail = "contact@ase.example";
+export const contactEmail = "Email to be confirmed";
+export const contactPhone = "Phone to be confirmed";
+export const locationLabel = "Addis Ababa, Ethiopia";
 
 export const linkedInUrl = "https://www.linkedin.com/company/ase";
 
@@ -26,10 +28,8 @@ export const partnerLinks = [
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
-  { href: "/platform", label: "Platform" },
-  { href: "/engineering-environment", label: "Environment" },
-  { href: "/engineering-systems", label: "Systems" },
+  { href: "/capabilities", label: "Capabilities" },
   { href: "/projects", label: "Projects" },
-  { href: "/insights", label: "Insights" },
+  { href: "/platform", label: "Platform" },
   { href: "/contact", label: "Contact" },
 ];
