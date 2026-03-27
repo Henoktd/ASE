@@ -4,18 +4,15 @@
   --ase-black: #272729;
   --ase-blue: #38469d;
   --ase-red: #c52b35;
-  --ase-graphite: #30344a;
   --ase-gray: #8a8a8a;
   --ase-white: #ffffff;
   --ase-paper: #f5f5f5;
-  --ase-paper-strong: #ebebeb;
+  --ase-paper-strong: #ececec;
   --ase-border: rgba(39, 39, 41, 0.12);
   --ase-border-soft: rgba(39, 39, 41, 0.08);
   --ase-muted: rgba(39, 39, 41, 0.72);
-  --ase-grid: rgba(255, 255, 255, 0.08);
+  --ase-grid: rgba(255, 255, 255, 0.06);
   --ase-grid-dark: rgba(39, 39, 41, 0.08);
-  --ase-panel: rgba(255, 255, 255, 0.84);
-  --ase-panel-dark: rgba(255, 255, 255, 0.05);
   --ase-shadow: rgba(39, 39, 41, 0.08);
   --ase-shadow-deep: rgba(39, 39, 41, 0.18);
 }
@@ -40,7 +37,6 @@
   --color-ase-black: var(--ase-black);
   --color-ase-blue: var(--ase-blue);
   --color-ase-red: var(--ase-red);
-  --color-ase-graphite: var(--ase-graphite);
   --color-ase-gray: var(--ase-gray);
   --color-ase-white: var(--ase-white);
   --color-ase-border: var(--ase-border);
@@ -59,7 +55,7 @@ html {
 }
 
 body {
-  background: var(--ase-white);
+  background: var(--ase-paper);
   color: var(--ase-black);
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
 }
@@ -105,21 +101,21 @@ body {
   }
 
   .ase-btn-ghost {
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     color: var(--ase-black);
   }
 
   .ase-btn-ghost.ase-btn-invert {
     border-color: rgba(255, 255, 255, 0.6);
     color: var(--ase-white);
-    background: rgba(255, 255, 255, 0.04);
+    background: transparent;
   }
 
   .ase-card {
     border: 1px solid var(--ase-border-soft);
     border-radius: 24px;
     padding: 24px;
-    background: rgba(255, 255, 255, 0.96);
+    background: var(--ase-paper);
     box-shadow: 0 22px 44px -34px var(--ase-shadow-deep);
     display: flex;
     flex-direction: column;
@@ -135,7 +131,7 @@ body {
   .ase-panel-soft {
     border: 1px solid var(--ase-border-soft);
     border-radius: 28px;
-    background: rgba(255, 255, 255, 0.92);
+    background: var(--ase-paper);
     box-shadow: 0 24px 48px -34px var(--ase-shadow-deep);
   }
 
@@ -152,11 +148,11 @@ body {
   }
 
   .ase-section-light {
-    background: var(--ase-white);
+    background: var(--ase-paper);
   }
 
   .ase-section-paper {
-    background: var(--ase-paper);
+    background: var(--ase-paper-strong);
   }
 
   .ase-section-dark {
@@ -164,7 +160,7 @@ body {
   }
 
   .ase-section-graphite {
-    background: var(--ase-black);
+    background: #dddddd;
   }
 
   .ase-hero-media {

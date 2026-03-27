@@ -1,98 +1,209 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description:
-    "Engineering systems validated through real-world execution environments.",
+  description: "Performance in real conditions.",
 };
 
-const applications = [
+const performanceCards = [
   {
-    name: "Large-Span Structures",
-    description: "Extended spans with reduced material use.",
+    title: "Large-Span Structures",
+    description: "Applications that validate span performance under real structural demands.",
+    icon: "span",
   },
   {
-    name: "Commercial Developments",
-    description: "Flexible structural systems for urban environments.",
+    title: "Structural Efficiency",
+    description: "Measured against material use, constructability, and system response.",
+    icon: "efficiency",
   },
   {
-    name: "Infrastructure Projects",
-    description: "Solutions for complex logistical conditions.",
+    title: "Commercial Developments",
+    description: "Systems adapted to evolving urban environments and delivery constraints.",
+    icon: "systems",
+  },
+  {
+    title: "Delivery Speed",
+    description: "Aligned with construction sequencing and time-critical execution realities.",
+    icon: "delivery",
+  },
+  {
+    title: "Infrastructure Projects",
+    description: "Performance tested in complex logistical and technical conditions.",
+    icon: "alignment",
+  },
+  {
+    title: "Constructability",
+    description: "Engineering assessed through practical buildability and field feedback.",
+    icon: "advisory",
   },
 ];
 
-const metrics = [
-  "Structural efficiency",
-  "Material use",
-  "Constructability",
-  "Delivery speed",
+const projects = [
+  {
+    title: "Project Image Required",
+    description: "Replace this card with an actual construction-phase project photo.",
+  },
+  {
+    title: "Project Image Required",
+    description: "Replace this card with an actual construction-phase project photo.",
+  },
+  {
+    title: "Project Image Required",
+    description: "Replace this card with an actual construction-phase project photo.",
+  },
 ];
+
+function ProjectIcon({ type }: { type: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      className="h-12 w-12 text-ase-black"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {type === "span" ? (
+        <>
+          <path d="M10 42h44" />
+          <path d="M16 42c5-13 11-20 16-20s11 7 16 20" />
+          <path d="M20 18v8" />
+          <path d="M44 18v8" />
+        </>
+      ) : null}
+      {type === "efficiency" ? (
+        <>
+          <circle cx="32" cy="32" r="16" />
+          <path d="M32 18v14l10 6" />
+          <path d="M14 18l6 6" />
+        </>
+      ) : null}
+      {type === "systems" ? (
+        <>
+          <rect x="10" y="14" width="16" height="16" rx="2" />
+          <rect x="38" y="14" width="16" height="16" rx="2" />
+          <rect x="24" y="36" width="16" height="16" rx="2" />
+          <path d="M26 22h12" />
+          <path d="M32 30v6" />
+        </>
+      ) : null}
+      {type === "delivery" ? (
+        <>
+          <path d="M10 40h36" />
+          <path d="M40 24h10l8 8v8H40z" />
+          <circle cx="22" cy="46" r="5" />
+          <circle cx="46" cy="46" r="5" />
+        </>
+      ) : null}
+      {type === "alignment" ? (
+        <>
+          <path d="M14 22h18l10 10" />
+          <path d="M50 22H32l-10 10" />
+          <path d="M14 42h18l10-10" />
+          <path d="M50 42H32l-10-10" />
+          <circle cx="32" cy="32" r="5" />
+        </>
+      ) : null}
+      {type === "advisory" ? (
+        <>
+          <path d="M32 10l18 10v20L32 50 14 40V20z" />
+          <path d="M32 10v20" />
+          <path d="M50 20 32 30 14 20" />
+        </>
+      ) : null}
+    </svg>
+  );
+}
 
 export default function ProjectsPage() {
   return (
     <>
-      <section className="ase-section-dark text-ase-white">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="flex flex-col gap-6">
+      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 ase-hero-media">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-hidden="true"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
+        <div className="ase-container relative z-10 py-24 lg:py-28">
+          <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               Projects
             </span>
-            <h1 className="text-4xl font-semibold">Engineering in Application</h1>
-            <p className="text-base leading-7 text-ase-gray">
-              ASE systems are validated through real-world execution
-              environments. Projects serve as testing grounds for performance,
-              efficiency, and adaptability.
-            </p>
-            <Link
-              href="/contact"
-              className="ase-btn ase-btn-ghost ase-btn-invert"
-            >
-              Partner with ASE
-            </Link>
+            <h1 className="mt-5 text-4xl font-semibold text-ase-white">
+              Engineering in Application
+            </h1>
           </div>
-          <div className="ase-grid h-64 rounded-3xl border border-white/10" />
-        </div>
-      </section>
-
-      <section className="ase-section-light">
-        <div className="ase-container grid gap-8 py-20 md:grid-cols-3">
-          {applications.map((project) => (
-            <article key={project.name} className="ase-card">
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-red">
-                Application
-              </span>
-              <h2 className="text-xl font-semibold text-ase-black">
-                {project.name}
-              </h2>
-              <p className="text-base leading-7 text-ase-muted">{project.description}</p>
-            </article>
-          ))}
         </div>
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1fr]">
-          <div className="ase-card">
+        <div className="ase-container py-20">
+          <div className="mb-10 max-w-3xl">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Continuous Improvement
+              Performance in Real Conditions
             </span>
-            <h2 className="text-3xl font-semibold text-ase-black">
-              Every project generates new engineering intelligence.
+            <h2 className="mt-4 text-3xl font-semibold text-ase-black">
+              Applications and metrics combined in one operating view.
             </h2>
-            <p className="text-base leading-7 text-ase-muted">
-              Performance data, constraint insights, and execution feedback feed
-              directly into system refinement.
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {performanceCards.map((item) => (
+              <article key={item.title} className="ase-card">
+                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+                  <ProjectIcon type={item.icon} />
+                </div>
+                <h3 className="text-lg font-semibold text-ase-black">
+                  {item.title}
+                </h3>
+                <p className="text-base leading-7 text-ase-muted">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ase-section-light">
+        <div className="ase-container py-20">
+          <div className="mb-10 max-w-2xl">
+            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+              Project Grid
+            </span>
+            <p className="mt-4 text-base leading-7 text-ase-muted">
+              This section is structured for real construction-phase project
+              photography. The current cards are placeholders until actual
+              images are provided.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {metrics.map((metric) => (
-              <div key={metric} className="ase-card">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  Evaluation Metric
-                </span>
-                <p className="text-lg font-semibold text-ase-black">{metric}</p>
-              </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <article key={`${project.title}-${index}`} className="ase-card overflow-hidden p-0">
+                <div className="aspect-[4/3] border-b border-ase-border-soft bg-[linear-gradient(180deg,rgba(56,70,157,0.08),rgba(39,39,41,0.04))]">
+                  <div className="flex h-full items-center justify-center px-8 text-center text-sm uppercase tracking-[0.28em] text-ase-gray">
+                    Real Project Image Pending
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3 p-6">
+                  <h3 className="text-lg font-semibold text-ase-black">
+                    {project.title}
+                  </h3>
+                  <p className="text-base leading-7 text-ase-muted">
+                    {project.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

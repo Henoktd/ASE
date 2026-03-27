@@ -1,0 +1,54 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#F5F5F5"/>
+  <rect x="0" y="0" width="1200" height="900" fill="url(#bg)"/>
+  <g opacity="0.12" stroke="#38469D" stroke-width="1">
+    <path d="M0 150H1200"/>
+    <path d="M0 300H1200"/>
+    <path d="M0 450H1200"/>
+    <path d="M0 600H1200"/>
+    <path d="M0 750H1200"/>
+    <path d="M150 0V900"/>
+    <path d="M300 0V900"/>
+    <path d="M450 0V900"/>
+    <path d="M600 0V900"/>
+    <path d="M750 0V900"/>
+    <path d="M900 0V900"/>
+    <path d="M1050 0V900"/>
+  </g>
+  <g>
+    <rect x="144" y="186" width="284" height="476" rx="12" fill="#272729"/>
+    <rect x="772" y="114" width="284" height="620" rx="12" fill="#272729"/>
+    <rect x="388" y="390" width="456" height="68" rx="10" fill="#38469D"/>
+    <rect x="396" y="466" width="440" height="24" rx="8" fill="#C52B35" opacity="0.82"/>
+    <rect x="396" y="358" width="440" height="18" rx="8" fill="#8A8A8A" opacity="0.45"/>
+  </g>
+  <g opacity="0.9">
+    <circle cx="458" cy="424" r="13" fill="#F5F5F5"/>
+    <circle cx="552" cy="424" r="13" fill="#F5F5F5"/>
+    <circle cx="646" cy="424" r="13" fill="#F5F5F5"/>
+    <circle cx="740" cy="424" r="13" fill="#F5F5F5"/>
+    <circle cx="500" cy="514" r="10" fill="#C52B35"/>
+    <circle cx="564" cy="514" r="10" fill="#C52B35"/>
+    <circle cx="628" cy="514" r="10" fill="#C52B35"/>
+    <circle cx="692" cy="514" r="10" fill="#C52B35"/>
+    <circle cx="756" cy="514" r="10" fill="#C52B35"/>
+  </g>
+  <g opacity="0.95" stroke="#F5F5F5" stroke-linecap="round">
+    <path d="M320 280L390 350" stroke-width="6"/>
+    <path d="M308 326L366 384" stroke-width="3"/>
+    <path d="M916 260L990 334" stroke-width="6"/>
+    <path d="M902 308L962 368" stroke-width="3"/>
+  </g>
+  <g opacity="0.5">
+    <path d="M820 200L1008 200" stroke="#F5F5F5" stroke-width="2" stroke-dasharray="8 10"/>
+    <path d="M820 648L1008 648" stroke="#F5F5F5" stroke-width="2" stroke-dasharray="8 10"/>
+    <path d="M192 258L380 258" stroke="#F5F5F5" stroke-width="2" stroke-dasharray="8 10"/>
+    <path d="M192 590L380 590" stroke="#F5F5F5" stroke-width="2" stroke-dasharray="8 10"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="111" y1="73" x2="1040" y2="827" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E8ECFA"/>
+      <stop offset="1" stop-color="#F5F5F5"/>
+    </linearGradient>
+  </defs>
+</svg>

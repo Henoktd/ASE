@@ -3,60 +3,124 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Capabilities",
   description:
-    "ASE develops engineering systems designed for performance, efficiency, and repeatability.",
+    "Engineering systems built for real performance.",
 };
 
 const capabilities = [
   {
-    title: "Structural Engineering & Design",
+    title: "Structural Systems That Perform Under Load",
     description:
-      "Structural systems optimized for load performance, material efficiency, and constructability.",
+      "Systems designed for structural clarity, constructability, and performance in demanding conditions.",
+    icon: "load",
   },
   {
-    title: "Post-Tensioning & Structural Optimization",
+    title: "Engineering Longer Spans with Less Material",
     description:
-      "Systems enabling longer spans, reduced structural mass, and greater design flexibility.",
+      "Engineering approaches that extend span potential while reducing structural mass.",
+    icon: "span",
   },
   {
-    title: "Engineering Systems & Standardization",
+    title: "Repeatable Engineering Systems",
     description:
-      "Reusable structural logic, design methodologies, and system-based engineering frameworks.",
+      "Reusable frameworks and methodologies that improve through repeated application.",
+    icon: "systems",
   },
   {
-    title: "Engineering Advisory",
+    title: "Engineering Input That Reduces Risk Early",
     description:
-      "Early-stage technical input to improve feasibility, reduce structural risk, and optimize cost-performance.",
+      "Technical direction that improves feasibility, optimization, and alignment before delivery pressure builds.",
+    icon: "advisory",
   },
 ];
 
 const approach = ["Designed", "Applied", "Tested", "Refined"];
 
+function CapabilityIcon({ type }: { type: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      className="h-12 w-12 text-ase-black"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {type === "load" ? (
+        <>
+          <path d="M12 18h40" />
+          <path d="M16 32h32" />
+          <path d="M20 46h24" />
+          <path d="M14 18v28" />
+          <path d="M50 18v28" />
+        </>
+      ) : null}
+      {type === "span" ? (
+        <>
+          <path d="M10 42h44" />
+          <path d="M16 42c5-13 11-20 16-20s11 7 16 20" />
+          <path d="M20 18v8" />
+          <path d="M44 18v8" />
+        </>
+      ) : null}
+      {type === "systems" ? (
+        <>
+          <rect x="10" y="14" width="16" height="16" rx="2" />
+          <rect x="38" y="14" width="16" height="16" rx="2" />
+          <rect x="24" y="36" width="16" height="16" rx="2" />
+          <path d="M26 22h12" />
+          <path d="M32 30v6" />
+        </>
+      ) : null}
+      {type === "advisory" ? (
+        <>
+          <path d="M32 10l18 10v20L32 50 14 40V20z" />
+          <path d="M32 10v20" />
+          <path d="M50 20 32 30 14 20" />
+        </>
+      ) : null}
+    </svg>
+  );
+}
+
 export default function CapabilitiesPage() {
   return (
     <>
-      <section className="ase-section-dark text-ase-white">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.15fr_0.85fr]">
-          <div className="flex flex-col gap-6">
+      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 ase-hero-media">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="none"
+            aria-hidden="true"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
+        <div className="ase-container relative z-10 py-24 lg:py-28">
+          <div className="max-w-3xl">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               Capabilities
             </span>
-            <h1 className="text-4xl font-semibold">
-              Engineering capabilities built for performance and repeatability.
+            <h1 className="mt-5 text-4xl font-semibold text-ase-white">
+              Engineering Systems Built for Real Performance
             </h1>
-            <p className="max-w-2xl text-base leading-7 text-ase-gray">
-              ASE develops engineering systems designed for performance,
-              efficiency, and repeatability across structurally complex
-              applications.
-            </p>
           </div>
-          <div className="ase-grid h-64 rounded-3xl border border-white/10" />
         </div>
       </section>
 
-      <section className="ase-section-light">
-        <div className="ase-container grid gap-6 py-20 md:grid-cols-2">
+      <section className="ase-section-paper">
+        <div className="ase-container grid gap-6 py-20 md:grid-cols-2 xl:grid-cols-4">
           {capabilities.map((item) => (
             <article key={item.title} className="ase-card">
+              <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+                <CapabilityIcon type={item.icon} />
+              </div>
               <h2 className="text-xl font-semibold text-ase-black">
                 {item.title}
               </h2>
@@ -66,27 +130,31 @@ export default function CapabilitiesPage() {
         </div>
       </section>
 
-      <section className="ase-section-paper">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex flex-col gap-4">
+      <section className="ase-section-light">
+        <div className="ase-container py-20">
+          <div className="mb-10 flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               Approach
             </span>
             <h2 className="text-3xl font-semibold text-ase-black">
-              Engineering evolves through use, not theory.
+              Designed → Applied → Tested → Refined
             </h2>
-            <p className="text-base leading-7 text-ase-muted">
-              Every ASE system moves through a repeatable cycle that sharpens
-              performance through application.
-            </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {approach.map((step) => (
-              <div key={step} className="ase-card">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-red">
-                  Process
-                </span>
-                <h3 className="text-2xl font-semibold text-ase-black">{step}</h3>
+
+          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
+            {approach.map((step, index) => (
+              <div
+                key={step}
+                className={index < approach.length - 1 ? "contents" : ""}
+              >
+                <div className="ase-card text-center">
+                  <h3 className="text-xl font-semibold text-ase-black">{step}</h3>
+                </div>
+                {index < approach.length - 1 ? (
+                  <div className="flex items-center justify-center text-2xl text-ase-blue">
+                    <span aria-hidden="true">→</span>
+                  </div>
+                ) : null}
               </div>
             ))}
           </div>

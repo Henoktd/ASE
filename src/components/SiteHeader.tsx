@@ -4,37 +4,37 @@ import { navLinks, site } from "@/lib/site";
 
 export default function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-[rgba(31,31,31,0.78)] text-ase-white backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-ase-border bg-[rgba(245,245,245,0.96)] text-ase-black backdrop-blur-xl">
       <div className="ase-container flex items-center justify-between py-6">
         <Link href="/" className="flex items-center gap-4">
           <Image
-            src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
+            src="/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL_FullName.png"
             alt="ASE"
-            width={160}
-            height={32}
-            className="h-7 w-auto"
+            width={260}
+            height={60}
+            className="h-10 w-auto"
             priority
           />
           <span className="sr-only">{site.fullName}</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.28em] text-[#b8b6b1] lg:flex">
+        <nav className="hidden items-center gap-6 text-xs uppercase tracking-[0.28em] text-ase-gray lg:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="transition-colors hover:text-ase-white"
+              className="transition-colors hover:text-ase-black"
             >
               {link.label}
             </Link>
           ))}
         </nav>
       </div>
-      <nav className="ase-container flex gap-4 overflow-x-auto pb-5 text-xs uppercase tracking-[0.28em] text-[#b8b6b1] lg:hidden">
+      <nav className="ase-container flex gap-4 overflow-x-auto pb-5 text-xs uppercase tracking-[0.28em] text-ase-gray lg:hidden">
         {navLinks.map((link) => (
           <Link
             key={link.href}
             href={link.href}
-            className="whitespace-nowrap transition-colors hover:text-ase-white"
+            className="whitespace-nowrap transition-colors hover:text-ase-black"
           >
             {link.label}
           </Link>

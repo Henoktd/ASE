@@ -5,7 +5,6 @@ import {
   linkedInUrl,
   locationLabel,
   navLinks,
-  partnerLinks,
   site,
 } from "@/lib/site";
 
@@ -18,23 +17,18 @@ export default function SiteFooter() {
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3">
             <span className="font-display text-lg tracking-[0.4em]">ASE</span>
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              {site.fullName}
-            </span>
           </div>
+          <span className="text-sm uppercase tracking-[0.28em] text-ase-gray">
+            {site.fullName}
+          </span>
           <p className="max-w-lg text-base leading-7 text-ase-gray">
-            ASE is the engineering intelligence layer of an integrated
-            engineering-delivery platform, building systems that learn through
-            application.
+            ASE is not a contractor or a generic engineering firm. It is an
+            engineering system and platform that builds capability over time.
           </p>
-          <div className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-            ASE - Engineering Intelligence | SVH - Strategic Platform Developer
-            | EASE - Execution Engine
-          </div>
         </div>
         <div className="grid gap-8 sm:grid-cols-2">
           <div className="flex flex-col gap-3 text-xs uppercase tracking-[0.3em] text-ase-gray">
-            <span>Navigate</span>
+            <span>Navigation</span>
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -60,20 +54,6 @@ export default function SiteFooter() {
               LinkedIn
             </a>
             <span>{locationLabel}</span>
-            <div className="mt-4 text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Partners
-            </div>
-            {partnerLinks.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                className="text-ase-white transition-colors hover:text-ase-gray"
-                target="_blank"
-                rel="noreferrer"
-              >
-                {partner.name} - {partner.role}
-              </a>
-            ))}
           </div>
         </div>
       </div>

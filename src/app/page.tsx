@@ -10,24 +10,109 @@ export const metadata: Metadata = {
 
 const capabilityHighlights = [
   {
-    title: "Structural Engineering & System Design",
+    title: "Structural Systems That Perform Under Load",
     summary:
       "Optimized structural systems designed for performance and constructability.",
+    icon: "load",
   },
   {
-    title: "Post-Tensioning & Material Efficiency",
+    title: "Engineering Longer Spans with Less Material",
     summary:
       "Systems enabling longer spans and reduced structural mass.",
+    icon: "span",
   },
   {
-    title: "Engineering Systems & Standardization",
+    title: "Repeatable Engineering Systems",
     summary: "Reusable methodologies and design frameworks.",
+    icon: "systems",
   },
   {
-    title: "Engineering Advisory",
+    title: "Engineering Input That Reduces Risk Early",
     summary: "Technical input to shape feasibility and reduce risk.",
+    icon: "advisory",
   },
 ];
+
+function CapabilityIcon({ type }: { type: string }) {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      className="h-12 w-12 text-ase-white"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {type === "load" ? (
+        <>
+          <path d="M12 18h40" />
+          <path d="M16 32h32" />
+          <path d="M20 46h24" />
+          <path d="M14 18v28" />
+          <path d="M50 18v28" />
+        </>
+      ) : null}
+      {type === "span" ? (
+        <>
+          <path d="M10 42h44" />
+          <path d="M16 42c5-13 11-20 16-20s11 7 16 20" />
+          <path d="M20 18v8" />
+          <path d="M44 18v8" />
+        </>
+      ) : null}
+      {type === "systems" ? (
+        <>
+          <rect x="10" y="14" width="16" height="16" rx="2" />
+          <rect x="38" y="14" width="16" height="16" rx="2" />
+          <rect x="24" y="36" width="16" height="16" rx="2" />
+          <path d="M26 22h12" />
+          <path d="M32 30v6" />
+        </>
+      ) : null}
+      {type === "advisory" ? (
+        <>
+          <path d="M32 10l18 10v20L32 50 14 40V20z" />
+          <path d="M32 10v20" />
+          <path d="M50 20 32 30 14 20" />
+        </>
+      ) : null}
+      {type === "efficiency" ? (
+        <>
+          <circle cx="32" cy="32" r="16" />
+          <path d="M32 18v14l10 6" />
+          <path d="M14 18l6 6" />
+        </>
+      ) : null}
+      {type === "delivery" ? (
+        <>
+          <path d="M10 40h36" />
+          <path d="M40 24h10l8 8v8H40z" />
+          <circle cx="22" cy="46" r="5" />
+          <circle cx="46" cy="46" r="5" />
+        </>
+      ) : null}
+      {type === "alignment" ? (
+        <>
+          <path d="M14 22h18l10 10" />
+          <path d="M50 22H32l-10 10" />
+          <path d="M14 42h18l10-10" />
+          <path d="M50 42H32l-10-10" />
+          <circle cx="32" cy="32" r="5" />
+        </>
+      ) : null}
+      {type === "capability" ? (
+        <>
+          <path d="M14 48V18" />
+          <path d="M14 48h34" />
+          <path d="M22 40l8-10 8 5 10-14" />
+          <path d="M40 18h10v10" />
+        </>
+      ) : null}
+    </svg>
+  );
+}
 
 const platformStages = [
   {
@@ -48,49 +133,45 @@ const platformStages = [
   },
 ];
 
-const alliances = [
-  {
-    name: "EASE",
-    role: "Execution Engine",
-    description:
-      "Applies systems, delivers projects, generates feedback, and validates performance across East Africa.",
-    url: "https://www.ease-int.com",
-  },
-  {
-    name: "SVH",
-    role: "Strategic Platform Developer",
-    description:
-      "Directs platform strategy, investment alignment, and long-term infrastructure positioning.",
-    url: "https://www.sol-ventures.com",
-  },
-];
-
 const applications = [
   {
     name: "Large-Span Structures",
     focus: "Extended spans with reduced material use.",
+    image: "/media/project-construction-1.svg",
   },
   {
     name: "Commercial Developments",
     focus: "Flexible structural systems for urban environments.",
+    image: "/media/project-construction-2.svg",
   },
   {
     name: "Infrastructure Projects",
     focus: "Solutions for complex logistical conditions.",
+    image: "/media/project-construction-3.svg",
   },
 ];
 
 const valuePoints = [
-  "Reduced structural mass without compromising performance",
-  "Engineering aligned with accelerated construction timelines",
-  "Design grounded in real construction conditions",
-  "Each project strengthens future performance",
-];
-
-const positioning = [
-  "Not a contractor",
-  "Not a generic engineering firm",
-  "The engineering intelligence system behind a regional execution platform",
+  {
+    title: "Material Efficiency",
+    description: "Less material, same performance",
+    icon: "efficiency",
+  },
+  {
+    title: "Faster Delivery",
+    description: "Aligned with construction timelines",
+    icon: "delivery",
+  },
+  {
+    title: "Execution Alignment",
+    description: "Built for real conditions",
+    icon: "alignment",
+  },
+  {
+    title: "Cumulative Capability",
+    description: "Improves with every project",
+    icon: "capability",
+  },
 ];
 
 export default function Home() {
@@ -110,7 +191,7 @@ export default function Home() {
             <source src="/media/ase-hero.mp4" type="video/mp4" />
           </video>
         </div>
-        <div className="pointer-events-none absolute inset-0 ase-hero-overlay ase-grid opacity-40" />
+        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 grid gap-12 py-24 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col gap-8">
             <div
@@ -123,15 +204,19 @@ export default function Home() {
               className="ase-fade-up font-display text-4xl sm:text-5xl lg:text-6xl"
               style={{ animationDelay: "200ms" }}
             >
-              Engineering Systems for Africa&apos;s Most Demanding Structures
+              Engineering Systems That Make Complex Structures Possible
             </h1>
+            <p
+              className="ase-fade-up max-w-2xl text-sm uppercase tracking-[0.3em] text-white/78"
+              style={{ animationDelay: "250ms" }}
+            >
+              ASE - Afrispecialized Engineering
+            </p>
             <p
               className="ase-fade-up max-w-2xl text-lg text-ase-gray"
               style={{ animationDelay: "300ms" }}
             >
-              ASE develops structural systems that enable projects to span
-              farther, build faster, and use less material, engineered for
-              real-world constraints.
+              Designed for real-world constraints. Built to perform at scale.
             </p>
             <div
               className="ase-fade-up flex flex-wrap gap-4"
@@ -140,83 +225,79 @@ export default function Home() {
               <Link href="/capabilities" className="ase-btn ase-btn-primary">
                 Explore Capabilities
               </Link>
-              <Link
-                href="/projects"
-                className="ase-btn ase-btn-ghost ase-btn-invert"
-              >
-                View Projects
-              </Link>
             </div>
           </div>
           <div
             className="ase-fade-up grid gap-4"
             style={{ animationDelay: "450ms" }}
           >
-            <div className="ase-rotator ase-panel-dark ase-grid p-6">
-              <Image
-                src="/Brand/01%20Logo/SVG/White/white-SYMBOL.svg"
-                alt="ASE symbol"
-                width={640}
-                height={640}
-              />
-              <Image
-                src="/Brand/01%20Logo/SVG/White/white-VERTICAL.svg"
-                alt="ASE vertical mark"
-                width={640}
-                height={640}
-              />
-              <Image
-                src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
-                alt="ASE horizontal mark"
-                width={640}
-                height={640}
-              />
-            </div>
-            {capabilityHighlights.map((item) => (
-              <div key={item.title} className="ase-panel-dark px-6 py-6">
-                <h2 className="text-lg font-semibold text-ase-white">
-                  {item.title}
-                </h2>
-                <p className="mt-2 text-base leading-7 text-ase-gray">{item.summary}</p>
+            <div className="ase-panel-dark px-6 py-6">
+              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                ASE Positioning
+              </span>
+              <div className="mt-4 grid gap-3">
+                <div className="border-b border-white/10 pb-3 text-base leading-7 text-white/88">
+                  Not a contractor
+                </div>
+                <div className="border-b border-white/10 pb-3 text-base leading-7 text-white/88">
+                  Not a generic engineering firm
+                </div>
+                <div className="text-base leading-7 text-white/88">
+                  An engineering system that builds capability over time
+                </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container grid gap-8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="ase-container grid gap-8 py-16 lg:grid-cols-[0.4fr_0.6fr] lg:items-center">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               Positioning
             </span>
             <h2 className="text-3xl font-semibold text-ase-black">
-              ASE is the engineering intelligence layer of an integrated
-              engineering-delivery platform.
+              ASE defines how structural challenges are solved.
             </h2>
             <p className="text-base leading-7 text-ase-muted">
-              It defines structural solutions, develops engineering systems, and
-              builds a growing body of technical capability continuously refined
-              through real project application.
+              ASE defines how structural challenges are solved, developing
+              systems that are applied, tested, and refined through real-world
+              execution.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
-            {alliances.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.url}
-                className="ase-card transition-colors hover:border-ase-black"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  {partner.role}
+          <div className="overflow-hidden rounded-[28px] border border-ase-border bg-white">
+            <Image
+              src="/media/structural-connection.svg"
+              alt="Illustration of a welded structural steel connection"
+              width={1200}
+              height={900}
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="ase-section-paper">
+        <div className="ase-container py-20">
+          <div className="mb-10 max-w-3xl">
+            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+              Capabilities Snapshot
+            </span>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {capabilityHighlights.map((item) => (
+              <article key={item.title} className="ase-card">
+                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+                  <CapabilityIcon type={item.icon} />
                 </div>
-                <h3 className="text-xl font-semibold text-ase-black">
-                  {partner.name}
-                </h3>
-                <p className="text-base leading-7 text-ase-muted">{partner.description}</p>
-              </a>
+                <h2 className="text-lg font-semibold text-ase-black">
+                  {item.title}
+                </h2>
+                <p className="text-base leading-7 text-ase-muted">
+                  {item.summary}
+                </p>
+              </article>
             ))}
           </div>
         </div>
@@ -253,45 +334,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ase-section-paper">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-6">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Projects
-            </span>
-            <h2 className="text-3xl font-semibold text-ase-black">
-              Engineering in application.
-            </h2>
-            <p className="text-base leading-7 text-ase-muted">
-              ASE systems are validated through real-world execution
-              environments. Projects serve as testing grounds for performance,
-              efficiency, and adaptability.
-            </p>
-            <Link href="/projects" className="ase-btn ase-btn-ghost">
-              View Projects
-            </Link>
-          </div>
-          <div className="grid gap-4">
-            {applications.map((project) => (
-              <div key={project.name} className="ase-card">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-red">
-                  Application
-                </span>
-                <h3 className="text-lg font-semibold text-ase-black">
-                  {project.name}
-                </h3>
-                <p className="text-base leading-7 text-ase-muted">{project.focus}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="ase-section-light">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.2fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Value Proposition
+              What Sets ASE Apart
             </span>
             <h2 className="text-3xl font-semibold text-ase-black">
               Structural engineering that compounds in value over time.
@@ -306,43 +353,61 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {valuePoints.map((item) => (
-              <div key={item} className="ase-card">
-                <h3 className="text-lg font-semibold text-ase-black">{item}</h3>
+              <div key={item.title} className="ase-card">
+                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+                  <CapabilityIcon type={item.icon} />
+                </div>
+                <h3 className="text-lg font-semibold text-ase-black">
+                  {item.title}
+                </h3>
+                <p className="text-base leading-7 text-ase-muted">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="ase-section-graphite text-ase-white">
-        <div className="ase-container grid gap-8 py-20 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col gap-4">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Closing
-            </span>
-            <h2 className="text-3xl font-semibold">
-              Engineering that improves with every application.
-            </h2>
-            <p className="text-base leading-7 text-ase-gray">
-              ASE is building a system-based engineering platform behind
-              regional execution, not a generic consultancy or contractor
-              model.
-            </p>
+      <section className="ase-section-paper">
+        <div className="ase-container py-20">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div className="flex flex-col gap-4">
+              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                Projects
+              </span>
+              <h2 className="text-3xl font-semibold text-ase-black">
+                Engineering in application.
+              </h2>
+            </div>
             <Link
-              href="/contact"
-              className="ase-btn ase-btn-ghost ase-btn-invert"
+              href="/projects"
+              className="text-sm uppercase tracking-[0.28em] text-ase-blue"
             >
-              Engage with ASE
+              View All Projects
             </Link>
           </div>
-          <div className="grid gap-4">
-            {positioning.map((item) => (
-              <div key={item} className="ase-panel-dark px-5 py-5">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-red">
-                  Positioning
-                </span>
-                <h3 className="mt-3 text-lg font-semibold">{item}</h3>
-              </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {applications.map((project) => (
+              <article key={project.name} className="ase-card overflow-hidden p-0">
+                <div className="aspect-[4/3] overflow-hidden border-b border-ase-border-soft bg-white">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} construction phase visual`}
+                    width={1200}
+                    height={900}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-3 p-6">
+                  <h3 className="text-lg font-semibold text-ase-black">
+                    {project.name}
+                  </h3>
+                  <p className="text-base leading-7 text-ase-muted">
+                    {project.focus}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
         </div>

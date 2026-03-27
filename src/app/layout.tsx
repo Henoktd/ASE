@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | ASE",
   },
   description:
-    "ASE develops structural systems that enable demanding projects to span farther, build faster, and use less material.",
+    "ASE is not a contractor or a generic engineering firm. ASE is an engineering system and platform that builds capability over time.",
 };
 
 export default function RootLayout({
@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${dmSans.variable} antialiased`}>
-        <div className="min-h-screen bg-ase-white text-ase-black">
+        <div className="min-h-screen bg-ase-paper text-ase-black">
           <SiteHeader />
           <main id="content">{children}</main>
           <SiteFooter />

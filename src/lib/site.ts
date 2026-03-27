@@ -1,9 +1,9 @@
 export const site = {
   name: "ASE",
-  fullName: "Africa Specialized Engineering",
-  tagline: "Engineering Intelligence Platform",
+  fullName: "Afrispecialized Engineering",
+  tagline: "Engineering System Platform",
   description:
-    "ASE develops structural systems that enable demanding projects to span farther, build faster, and use less material.",
+    "ASE is an engineering system and platform that builds structural capability over time through application, feedback, and refinement.",
 };
 
 export const contactEmail = "Email to be confirmed";
