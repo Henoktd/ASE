@@ -201,15 +201,6 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 grid gap-12 py-24 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col gap-8">
-            <Image
-              src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
-              alt="ASE"
-              width={220}
-              height={52}
-              className="ase-fade-up h-9 w-auto"
-              style={{ animationDelay: "50ms" }}
-              priority
-            />
             <div
               className="ase-fade-up text-xs uppercase tracking-[0.4em] text-ase-gray"
               style={{ animationDelay: "100ms" }}
@@ -243,16 +234,38 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="ase-fade-up flex items-end" style={{ animationDelay: "450ms" }}>
-            <div className="ase-panel-dark max-w-xl px-6 py-6">
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                What ASE Is
-              </span>
-              <p className="mt-4 text-base leading-7 text-white/88">
-                ASE is an engineering and infrastructure solutions provider
-                delivering structural systems, heavy civil works, and
-                integrated execution capability across demanding projects.
-              </p>
+          <div className="ase-fade-up flex items-start pt-2 lg:pt-0" style={{ animationDelay: "450ms" }}>
+            <div className="w-full max-w-xl">
+              <div className="ase-hero-construct">
+                <div className="ase-hero-orb" />
+                <div className="flex justify-end pr-2 pt-2">
+                  <Image
+                    src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
+                    alt="ASE"
+                    width={700}
+                    height={164}
+                    className="ase-logo-drift relative z-10 h-24 w-auto sm:h-28 lg:h-32"
+                    priority
+                  />
+                </div>
+                <div className="ase-hero-gridline" />
+                <div className="ase-hero-copy">
+                  <div className="ase-hero-copy-card">
+                    <span className="ase-hero-copy-label">What ASE Is</span>
+                    <p className="ase-hero-copy-text">
+                      An engineering and infrastructure solutions provider for
+                      structurally demanding projects.
+                    </p>
+                  </div>
+                  <div className="ase-hero-copy-card">
+                    <span className="ase-hero-copy-label">Why It Matters</span>
+                    <p className="ase-hero-copy-text">
+                      Engineering knowledge is applied, tested, and improved
+                      instead of being reset on every project.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

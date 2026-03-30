@@ -8,11 +8,11 @@ export default function SiteHeader() {
       <div className="ase-container flex items-center justify-between py-6">
         <Link href="/" className="flex items-center">
           <Image
-            src="/Brand/01%20Logo/Full%20Color/fullcolor-SYMBOL.png"
+            src="/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL.png"
             alt="ASE"
-            width={68}
-            height={68}
-            className="h-11 w-auto"
+            width={220}
+            height={54}
+            className="h-12 w-auto"
             priority
           />
           <span className="sr-only">{site.fullName}</span>

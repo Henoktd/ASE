@@ -192,14 +192,14 @@ export default function PlatformPage() {
             </span>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
-            <article className="ase-card ase-card-tint-blue">
+          <div className="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
+            <article className="ase-card ase-card-tint-blue h-full">
               <div className="mb-2 flex items-center">
                 <Image
-                  src="/media/Profile%20images/Profile%20images/ASE.png"
+                  src="/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL.png"
                   alt="ASE"
-                  width={120}
-                  height={44}
+                  width={160}
+                  height={40}
                   className="h-10 w-auto object-contain"
                 />
               </div>
@@ -209,7 +209,7 @@ export default function PlatformPage() {
               <h2 className="text-2xl font-semibold text-ase-black">
                 Defines systems
               </h2>
-              <p className="text-base leading-7 text-ase-muted">
+              <p className="flex-1 text-base leading-7 text-ase-muted">
                 ASE defines structural problems, develops engineering systems,
                 and retains technical logic inside the platform.
               </p>
@@ -220,7 +220,7 @@ export default function PlatformPage() {
               <span className="text-sm uppercase tracking-[0.28em]">↺ Feedback</span>
             </div>
 
-            <article className="ase-card ase-card-tint-red">
+            <article className="ase-card ase-card-tint-red h-full">
               <div className="mb-2 flex items-center">
                 <Image
                   src="/media/Profile%20images/Profile%20images/Ease%2001%20%281%29.png"
@@ -236,7 +236,7 @@ export default function PlatformPage() {
               <h2 className="text-2xl font-semibold text-ase-black">
                 Executes systems
               </h2>
-              <p className="text-base leading-7 text-ase-muted">
+              <p className="flex-1 text-base leading-7 text-ase-muted">
                 EASE applies those systems in projects, generating performance
                 feedback that helps refine future engineering.
               </p>
