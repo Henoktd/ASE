@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <section className="ase-section-dark text-ase-white">
+      <section className="ase-section-dark ase-section-transition text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1.2fr_0.8fr]">
           <div className="flex flex-col gap-6">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -32,7 +32,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="bg-ase-white">
+      <section className="bg-ase-paper">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[0.9fr_1.1fr]">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">

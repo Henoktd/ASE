@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -40,16 +41,21 @@ const performanceCards = [
 
 const projects = [
   {
-    title: "Project Image Required",
-    description: "Replace this card with an actual construction-phase project photo.",
+    title: "Meskel Flower Bridge",
+    description: "Bridge structure and connection detailing under live infrastructure conditions.",
+    image:
+      "/media/Profile%20images/Profile%20images/Meskel%20flower%20bridge.png",
   },
   {
-    title: "Project Image Required",
-    description: "Replace this card with an actual construction-phase project photo.",
+    title: "Omo Bridge",
+    description: "Heavy infrastructure application showing structural performance in execution.",
+    image: "/media/Profile%20images/Profile%20images/Omo%20bridge.png",
   },
   {
-    title: "Project Image Required",
-    description: "Replace this card with an actual construction-phase project photo.",
+    title: "Wabi Shebelle Bridge",
+    description: "Long-span bridge construction conditions aligned with system-led engineering.",
+    image:
+      "/media/Profile%20images/Profile%20images/Wabi%20shebelle%20bridge.png",
   },
 ];
 
@@ -57,7 +63,7 @@ function ProjectIcon({ type }: { type: string }) {
   return (
     <svg
       viewBox="0 0 64 64"
-      className="h-12 w-12 text-ase-black"
+      className="h-12 w-12 text-ase-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -120,7 +126,7 @@ function ProjectIcon({ type }: { type: string }) {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
         <div className="pointer-events-none absolute inset-0 ase-hero-media">
           <video
             className="ase-hero-video"
@@ -158,9 +164,14 @@ export default function ProjectsPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {performanceCards.map((item) => (
-              <article key={item.title} className="ase-card">
-                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+            {performanceCards.map((item, index) => (
+              <article
+                key={item.title}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <div
+                  className={`ase-icon-chip ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}
+                >
                   <ProjectIcon type={item.icon} />
                 </div>
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -181,19 +192,18 @@ export default function ProjectsPage() {
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
               Project Grid
             </span>
-            <p className="mt-4 text-base leading-7 text-ase-muted">
-              This section is structured for real construction-phase project
-              photography. The current cards are placeholders until actual
-              images are provided.
-            </p>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
             {projects.map((project, index) => (
               <article key={`${project.title}-${index}`} className="ase-card overflow-hidden p-0">
-                <div className="aspect-[4/3] border-b border-ase-border-soft bg-[linear-gradient(180deg,rgba(56,70,157,0.08),rgba(39,39,41,0.04))]">
-                  <div className="flex h-full items-center justify-center px-8 text-center text-sm uppercase tracking-[0.28em] text-ase-gray">
-                    Real Project Image Pending
-                  </div>
+                <div className="aspect-[4/3] overflow-hidden border-b border-ase-border-soft bg-[linear-gradient(180deg,rgba(56,70,157,0.08),rgba(39,39,41,0.04))]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1200}
+                    height={900}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div className="flex flex-col gap-3 p-6">
                   <h3 className="text-lg font-semibold text-ase-black">

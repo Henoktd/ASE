@@ -122,6 +122,42 @@ body {
     gap: 12px;
   }
 
+  .ase-card-tint-blue {
+    background: linear-gradient(
+      180deg,
+      rgba(56, 70, 157, 0.12) 0%,
+      rgba(56, 70, 157, 0.06) 100%
+    );
+  }
+
+  .ase-card-tint-red {
+    background: linear-gradient(
+      180deg,
+      rgba(197, 43, 53, 0.12) 0%,
+      rgba(197, 43, 53, 0.06) 100%
+    );
+  }
+
+  .ase-icon-chip {
+    display: flex;
+    height: 56px;
+    width: 56px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    border: 1px solid rgba(39, 39, 41, 0.08);
+  }
+
+  .ase-icon-chip-blue {
+    background: rgba(56, 70, 157, 0.92);
+    color: var(--ase-white);
+  }
+
+  .ase-icon-chip-red {
+    background: rgba(197, 43, 53, 0.92);
+    color: var(--ase-white);
+  }
+
   .ase-card-dark {
     background: var(--ase-black);
     border-color: rgba(255, 255, 255, 0.1);
@@ -157,6 +193,16 @@ body {
 
   .ase-section-dark {
     background: var(--ase-blue);
+  }
+
+  .ase-section-transition {
+    background-image: linear-gradient(
+      180deg,
+      rgba(224, 230, 248, 1) 0%,
+      rgba(172, 186, 231, 0.96) 11%,
+      rgba(56, 70, 157, 0.98) 28%,
+      rgba(56, 70, 157, 1) 100%
+    );
   }
 
   .ase-section-graphite {

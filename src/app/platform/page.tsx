@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Platform",
@@ -38,7 +39,7 @@ const outcomes = [
 export default function PlatformPage() {
   return (
     <>
-      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
         <div className="pointer-events-none absolute inset-0 ase-hero-media">
           <video
             className="ase-hero-video"
@@ -140,8 +141,11 @@ export default function PlatformPage() {
 
       <section className="ase-section-paper">
         <div className="ase-container grid gap-8 py-20 md:grid-cols-2">
-          {platformStructure.map((item) => (
-            <article key={item.title} className="ase-card">
+          {platformStructure.map((item, index) => (
+            <article
+              key={item.title}
+              className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+            >
               <h2 className="text-lg font-semibold text-ase-black">
                 {item.title}
               </h2>
@@ -168,8 +172,11 @@ export default function PlatformPage() {
             </p>
           </div>
           <div className="grid gap-4">
-            {outcomes.map((step) => (
-              <div key={step} className="ase-card">
+            {outcomes.map((step, index) => (
+              <div
+                key={step}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
                 <p className="text-base leading-7 text-ase-black">{step}</p>
               </div>
             ))}
@@ -186,7 +193,16 @@ export default function PlatformPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-center">
-            <article className="ase-card">
+            <article className="ase-card ase-card-tint-blue">
+              <div className="mb-2 flex items-center">
+                <Image
+                  src="/media/Profile%20images/Profile%20images/ASE.png"
+                  alt="ASE"
+                  width={120}
+                  height={44}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
               <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
                 ASE
               </span>
@@ -204,7 +220,16 @@ export default function PlatformPage() {
               <span className="text-sm uppercase tracking-[0.28em]">↺ Feedback</span>
             </div>
 
-            <article className="ase-card">
+            <article className="ase-card ase-card-tint-red">
+              <div className="mb-2 flex items-center">
+                <Image
+                  src="/media/Profile%20images/Profile%20images/Ease%2001%20%281%29.png"
+                  alt="EASE"
+                  width={120}
+                  height={44}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
               <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
                 EASE
               </span>
@@ -224,6 +249,30 @@ export default function PlatformPage() {
                 Know More About EASE
               </a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="ase-section-paper">
+        <div className="ase-container py-16">
+          <div className="grid gap-6 rounded-[28px] border border-ase-border bg-white px-8 py-8 lg:grid-cols-[1fr_220px] lg:items-center">
+            <div className="flex flex-col gap-3">
+              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                Strategic Platform Development
+              </span>
+              <p className="text-base leading-7 text-ase-muted">
+                The broader platform model is supported by aligned strategic development, helping engineering capability grow across execution environments and markets.
+              </p>
+            </div>
+            <div className="flex justify-start lg:justify-end">
+              <Image
+                src="/media/Profile%20images/Profile%20images/Solstice.png"
+                alt="Solstice Ventures"
+                width={180}
+                height={60}
+                className="h-10 w-auto object-contain"
+              />
+            </div>
           </div>
         </div>
       </section>

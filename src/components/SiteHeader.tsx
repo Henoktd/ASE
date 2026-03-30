@@ -6,13 +6,13 @@ export default function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-b border-ase-border bg-[rgba(245,245,245,0.96)] text-ase-black backdrop-blur-xl">
       <div className="ase-container flex items-center justify-between py-6">
-        <Link href="/" className="flex items-center gap-4">
+        <Link href="/" className="flex items-center">
           <Image
-            src="/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL_FullName.png"
+            src="/Brand/01%20Logo/Full%20Color/fullcolor-SYMBOL.png"
             alt="ASE"
-            width={260}
-            height={60}
-            className="h-10 w-auto"
+            width={68}
+            height={68}
+            className="h-11 w-auto"
             priority
           />
           <span className="sr-only">{site.fullName}</span>

@@ -135,19 +135,21 @@ const platformStages = [
 
 const applications = [
   {
-    name: "Large-Span Structures",
-    focus: "Extended spans with reduced material use.",
-    image: "/media/project-construction-1.svg",
+    name: "Golden Star",
+    focus: "Structural delivery shaped around real construction sequencing.",
+    image:
+      "/media/Profile%20images/Profile%20images/Golden%20Star.png",
   },
   {
-    name: "Commercial Developments",
-    focus: "Flexible structural systems for urban environments.",
-    image: "/media/project-construction-2.svg",
+    name: "SEMU Residence",
+    focus: "Concrete-intensive project conditions supported by buildable engineering.",
+    image: "/media/Profile%20images/Profile%20images/SEMU%20residence.png",
   },
   {
-    name: "Infrastructure Projects",
-    focus: "Solutions for complex logistical conditions.",
-    image: "/media/project-construction-3.svg",
+    name: "Refenti",
+    focus: "Urban structural application coordinated through practical execution logic.",
+    image:
+      "/media/Profile%20images/Profile%20images/refenti.png",
   },
 ];
 
@@ -174,10 +176,15 @@ const valuePoints = [
   },
 ];
 
+const companyOverview = [
+  "Afrispecialized Engineering (ASE) is an engineering and infrastructure solutions provider delivering structural systems, heavy civil works, and concrete-intensive construction across complex projects.",
+  "The company combines technical expertise, project execution capability, and integrated engineering services to deliver reliable, buildable outcomes at scale across the full project lifecycle.",
+];
+
 export default function Home() {
   return (
     <>
-      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
         <div className="pointer-events-none absolute inset-0 ase-hero-media">
           <video
             className="ase-hero-video"
@@ -194,6 +201,15 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 grid gap-12 py-24 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="flex flex-col gap-8">
+            <Image
+              src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
+              alt="ASE"
+              width={220}
+              height={52}
+              className="ase-fade-up h-9 w-auto"
+              style={{ animationDelay: "50ms" }}
+              priority
+            />
             <div
               className="ase-fade-up text-xs uppercase tracking-[0.4em] text-ase-gray"
               style={{ animationDelay: "100ms" }}
@@ -227,31 +243,41 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div
-            className="ase-fade-up grid gap-4"
-            style={{ animationDelay: "450ms" }}
-          >
-            <div className="ase-panel-dark px-6 py-6">
+          <div className="ase-fade-up flex items-end" style={{ animationDelay: "450ms" }}>
+            <div className="ase-panel-dark max-w-xl px-6 py-6">
               <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                ASE Positioning
+                What ASE Is
               </span>
-              <div className="mt-4 grid gap-3">
-                <div className="border-b border-white/10 pb-3 text-base leading-7 text-white/88">
-                  Not a contractor
-                </div>
-                <div className="border-b border-white/10 pb-3 text-base leading-7 text-white/88">
-                  Not a generic engineering firm
-                </div>
-                <div className="text-base leading-7 text-white/88">
-                  An engineering system that builds capability over time
-                </div>
-              </div>
+              <p className="mt-4 text-base leading-7 text-white/88">
+                ASE is an engineering and infrastructure solutions provider
+                delivering structural systems, heavy civil works, and
+                integrated execution capability across demanding projects.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       <section className="ase-section-light">
+        <div className="ase-container pt-16">
+          <div className="grid gap-6 rounded-[28px] border border-ase-border bg-white px-8 py-10 shadow-[0_24px_48px_-34px_rgba(39,39,41,0.18)] lg:grid-cols-[0.95fr_1.05fr]">
+            <div className="flex flex-col gap-4">
+              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                About ASE
+              </span>
+              <h2 className="text-3xl font-semibold text-ase-black">
+                Afrispecialized Engineering delivers engineering and infrastructure solutions at execution scale.
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {companyOverview.map((paragraph) => (
+                <p key={paragraph} className="text-base leading-7 text-ase-muted">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
         <div className="ase-container grid gap-8 py-16 lg:grid-cols-[0.4fr_0.6fr] lg:items-center">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -286,9 +312,14 @@ export default function Home() {
             </span>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {capabilityHighlights.map((item) => (
-              <article key={item.title} className="ase-card">
-                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+            {capabilityHighlights.map((item, index) => (
+              <article
+                key={item.title}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <div
+                  className={`ase-icon-chip ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}
+                >
                   <CapabilityIcon type={item.icon} />
                 </div>
                 <h2 className="text-lg font-semibold text-ase-black">
@@ -303,7 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ase-section-dark text-ase-white">
+      <section className="ase-section-dark ase-section-transition text-ase-white">
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr]">
           <div className="flex flex-col gap-4">
             <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
@@ -318,7 +349,7 @@ export default function Home() {
             </p>
             <Link
               href="/platform"
-              className="ase-btn ase-btn-ghost ase-btn-invert"
+              className="ase-btn ase-btn-primary"
             >
               Explore Platform
             </Link>
@@ -347,14 +378,19 @@ export default function Home() {
               Material efficiency, faster delivery, execution alignment, and
               cumulative capability define the ASE model.
             </p>
-            <Link href="/about" className="ase-btn ase-btn-ghost">
+            <Link href="/about" className="ase-btn ase-btn-primary">
               Learn About ASE
             </Link>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {valuePoints.map((item) => (
-              <div key={item.title} className="ase-card">
-                <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+            {valuePoints.map((item, index) => (
+              <div
+                key={item.title}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <div
+                  className={`ase-icon-chip ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}
+                >
                   <CapabilityIcon type={item.icon} />
                 </div>
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -413,25 +449,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="ase-section-dark text-ase-white">
-        <div className="ase-container flex flex-col gap-6 py-20 text-center">
-          <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-            Engage
-          </span>
-          <h2 className="text-3xl font-semibold">
-            Bring ASE in at feasibility, design, or optimization stage.
-          </h2>
-          <p className="mx-auto max-w-2xl text-base leading-7 text-ase-gray">
-            ASE supports developers, contractors, and infrastructure
-            stakeholders in solving structurally complex challenges.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/contact" className="ase-btn ase-btn-primary">
-              Engage with ASE
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -32,7 +32,7 @@ function AboutIcon({ type }: { type: string }) {
   return (
     <svg
       viewBox="0 0 64 64"
-      className="h-12 w-12 text-ase-black"
+      className="h-12 w-12 text-ase-white"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
@@ -71,7 +71,7 @@ function AboutIcon({ type }: { type: string }) {
 export default function AboutPage() {
   return (
     <>
-      <section className="ase-section-dark relative overflow-hidden text-ase-white">
+      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
         <div className="pointer-events-none absolute inset-0 ase-hero-media">
           <video
             className="ase-hero-video"
@@ -156,9 +156,14 @@ export default function AboutPage() {
                 Engineering matters more when knowledge compounds.
               </h2>
               <div className="mt-10 grid gap-6 md:grid-cols-3">
-                {whyItMatters.map((item) => (
-                  <article key={item.title} className="ase-card">
-                    <div className="mb-2 flex h-14 w-14 items-center justify-center rounded-2xl border border-ase-border">
+                {whyItMatters.map((item, index) => (
+                  <article
+                    key={item.title}
+                    className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+                  >
+                    <div
+                      className={`ase-icon-chip ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}
+                    >
                       <AboutIcon type={item.icon} />
                     </div>
                     <h3 className="text-lg font-semibold text-ase-black">
