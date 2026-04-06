@@ -9,23 +9,26 @@ export const metadata: Metadata = {
 
 const applicationAreas = [
   {
-    title: "Large-span structural systems",
+    title: "Bridge and span environments",
+    label: "01",
     description:
-      "Application contexts where structural consistency, control, and span efficiency are critical.",
+      "Long-span and crossing conditions where structural continuity, load behavior, and engineering control must remain dependable across demanding contexts.",
     image:
-      "/media/Profile%20images/Profile%20images/Wabi%20shebelle%20bridge.png",
+      "/media/Profile%20images/Profile%20images/Meskel%20flower%20bridge.png",
   },
   {
-    title: "Commercial and mixed-use developments",
+    title: "Dense urban structural programs",
+    label: "02",
     description:
-      "Structural environments where repeatable system logic improves engineering consistency across teams.",
-    image: "/media/Profile%20images/Profile%20images/refenti.png",
+      "Mixed-use and commercial structures where repeatable engineering logic helps align multiple structural systems, teams, and delivery pressures.",
+    image: "/media/Profile%20images/Profile%20images/Refenti%20with%20roundabout.png",
   },
   {
-    title: "Infrastructure and complex structural environments",
+    title: "Concrete-intensive development zones",
+    label: "03",
     description:
-      "Applications where technical control and performance feedback strengthen future system development.",
-    image: "/media/Profile%20images/Profile%20images/Omo%20bridge.png",
+      "Structural applications where concrete systems, execution constraints, and practical buildability demand disciplined engineering frameworks.",
+    image: "/media/Profile%20images/Profile%20images/KD%20real%20estate.png",
   },
 ];
 
@@ -72,7 +75,7 @@ export default function ApplicationsPage() {
               Where ASE Systems Are Applied
             </span>
             <h2 className="ase-section-title mt-4 text-ase-black">
-              Structural environments where consistency, efficiency, and performance are critical.
+              Structural environments where the platform becomes operationally relevant.
             </h2>
           </div>
           <div className="mt-10 grid gap-6 lg:grid-cols-3">
@@ -88,6 +91,9 @@ export default function ApplicationsPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-3 p-6">
+                  <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                    {item.label}
+                  </span>
                   <h3 className="text-xl font-semibold text-ase-black">
                     {item.title}
                   </h3>

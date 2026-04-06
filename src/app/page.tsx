@@ -48,18 +48,18 @@ const valuePoints = [
 const applicationAreas = [
   {
     name: "Large-span structures",
-    focus: "Application contexts where structural consistency and span efficiency are critical.",
-    image: "/media/Profile%20images/Profile%20images/Golden%20Star.png",
+    focus: "Bridge and span conditions where structural efficiency, continuity, and engineering control are critical.",
+    image: "/media/Profile%20images/Profile%20images/Omo%20bridge.png",
   },
   {
-    name: "Concrete-intensive environments",
-    focus: "Structural systems applied where execution constraints demand disciplined engineering logic.",
-    image: "/media/Profile%20images/Profile%20images/SEMU%20residence.png",
-  },
-  {
-    name: "Complex structural conditions",
-    focus: "Applications where repeatable system logic improves decision-making across teams.",
+    name: "Commercial and mixed-use structures",
+    focus: "Built environments where shared engineering logic improves coordination across complex structural programs.",
     image: "/media/Profile%20images/Profile%20images/refenti.png",
+  },
+  {
+    name: "Infrastructure under constrained conditions",
+    focus: "Structural applications where repeatable systems help teams respond to site conditions, constraints, and performance demands.",
+    image: "/media/Profile%20images/Profile%20images/Wabi%20shebelle%20bridge.png",
   },
 ];
 
@@ -67,6 +67,18 @@ export default function Home() {
   return (
     <>
       <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="pointer-events-none absolute inset-0 ase-hero-media" />
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 grid gap-12 py-24 lg:grid-cols-[1fr_0.95fr] lg:items-center">
