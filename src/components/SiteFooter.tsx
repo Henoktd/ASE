@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   contactEmail,
-  contactPhone,
-  linkedInUrl,
   locationLabel,
   navLinks,
   site,
@@ -25,12 +23,12 @@ export default function SiteFooter() {
               className="h-8 w-auto"
             />
           </div>
-          <span className="text-sm uppercase tracking-[0.28em] text-ase-gray">
+          <span className="text-sm uppercase tracking-[0.28em] text-white/80">
             {site.fullName}
           </span>
         </div>
         <div className="grid gap-8 sm:grid-cols-2">
-          <div className="flex flex-col gap-3 text-xs uppercase tracking-[0.3em] text-ase-gray">
+          <div className="flex flex-col gap-3 text-xs uppercase tracking-[0.3em] text-white/80">
             <span>Navigation</span>
             {navLinks.map((link) => (
               <Link
@@ -43,19 +41,14 @@ export default function SiteFooter() {
             ))}
           </div>
           <div className="flex flex-col gap-3 text-base leading-7 text-ase-gray">
-            <span className="text-xs uppercase tracking-[0.3em]">
-              Contact
+            <span className="text-xs uppercase tracking-[0.3em] text-white/80">
+              Engage
+            </span>
+            <span className="text-sm leading-6 text-white/80">
+              Structured engagement at the system level for developers,
+              contractors, and infrastructure stakeholders.
             </span>
             <span className="text-ase-white">{contactEmail}</span>
-            <span className="text-ase-white">{contactPhone}</span>
-            <a
-              href={linkedInUrl}
-              className="text-ase-white transition-colors hover:text-ase-gray"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
             <span>{locationLabel}</span>
           </div>
         </div>

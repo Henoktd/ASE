@@ -17,22 +17,6 @@
   --ase-shadow-deep: rgba(39, 39, 41, 0.18);
 }
 
-@font-face {
-  font-family: "Aktiv Grotesk Extended";
-  src: url("/fonts/aktiv-grotesk-ex-rg.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Aktiv Grotesk Extended";
-  src: url("/fonts/aktiv-grotesk-ex-bd.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 @theme inline {
   --color-ase-black: var(--ase-black);
   --color-ase-blue: var(--ase-blue);
@@ -58,6 +42,8 @@ body {
   background: var(--ase-paper);
   color: var(--ase-black);
   font-family: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
 }
 
 @layer components {
@@ -262,11 +248,52 @@ body {
     border-color: var(--ase-black);
   }
 
-  .font-display {
-    font-family: "Aktiv Grotesk Extended", var(--font-dm-sans), "DM Sans",
-      system-ui, sans-serif;
-    letter-spacing: 0.12em;
+  .ase-kicker {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
+  }
+
+  .ase-hero-title {
+    font-size: clamp(2.55rem, 4.8vw, 4.4rem);
+    font-weight: 650;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+
+  .ase-page-title {
+    font-size: clamp(2.8rem, 4.9vw, 4.5rem);
+    font-weight: 650;
+    line-height: 0.98;
+    letter-spacing: -0.045em;
+  }
+
+  .ase-section-title {
+    font-size: clamp(2.15rem, 3.7vw, 3.2rem);
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -0.04em;
+  }
+
+  .ase-body-lg {
+    font-size: 17px;
+    line-height: 1.82;
+  }
+
+  .ase-flow-card {
+    min-height: 132px;
+    justify-content: center;
+    border-radius: 28px;
+  }
+
+  .ase-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--ase-blue);
+    font-size: 28px;
+    font-weight: 500;
   }
 
   .ase-grid {

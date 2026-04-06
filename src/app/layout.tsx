@@ -21,11 +21,11 @@ const dmSans = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "ASE | Engineering Intelligence Platform",
+    default: "ASE | Structural Engineering Platform",
     template: "%s | ASE",
   },
   description:
-    "ASE is not a contractor or a generic engineering firm. ASE is an engineering system and platform that builds capability over time.",
+    "ASE is a structural engineering platform that standardizes, applies, and continuously improves reusable engineering systems across complex structural environments.",
 };
 
 export default function RootLayout({

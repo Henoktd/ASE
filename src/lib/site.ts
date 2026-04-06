@@ -1,12 +1,12 @@
 export const site = {
   name: "ASE",
   fullName: "Afrispecialized Engineering",
-  tagline: "Engineering System Platform",
+  tagline: "Structural Engineering Platform",
   description:
-    "ASE is an engineering system and platform that builds structural capability over time through application, feedback, and refinement.",
+    "ASE is a structural engineering platform that designs, standardizes, and continuously improves engineering systems used to deliver complex structures at scale.",
 };
 
-export const contactEmail = "Email to be confirmed";
+export const contactEmail = "info@afrispecialized.com";
 export const contactPhone = "Phone to be confirmed";
 export const locationLabel = "Addis Ababa, Ethiopia";
 
@@ -27,9 +27,9 @@ export const partnerLinks = [
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/capabilities", label: "Capabilities" },
-  { href: "/projects", label: "Projects" },
   { href: "/platform", label: "Platform" },
-  { href: "/contact", label: "Contact" },
+  { href: "/systems", label: "Systems" },
+  { href: "/applications", label: "Applications" },
+  { href: "/about", label: "About" },
+  { href: "/engage", label: "Engage" },
 ];

@@ -1,67 +1,63 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Platform",
-  description: "A system that builds engineering capability over time.",
+  description:
+    "The ASE platform develops and governs reusable structural engineering systems.",
 };
 
-const platformStructure = [
+const aseRole = [
   {
-    title: "ASE: Engineering Intelligence",
+    title: "Design engineering systems and frameworks",
     description:
-      "Defines problems, designs solutions, builds systems, and retains knowledge.",
+      "ASE defines how structural problems are approached and how engineering decisions are made.",
   },
   {
-    title: "EASE: Execution Engine",
+    title: "Establish structural standards and methodologies",
     description:
-      "Applies systems, delivers projects, generates feedback, and validates performance.",
+      "The platform provides consistent logic, parameters, and structural methods across applications.",
   },
   {
-    title: "Closed-Loop System",
+    title: "Capture performance feedback from application",
     description:
-      "System developed, applied in project, data generated, and system refined.",
+      "Real-world use produces data and constraints that help validate and strengthen the system.",
   },
   {
-    title: "Strategic Advantage",
+    title: "Continuously refine the system layer",
     description:
-      "Engineering becomes repeatable, knowledge compounds, and capability scales across markets.",
+      "Each cycle improves the platform so engineering capability compounds over time.",
   },
 ];
 
-const outcomes = [
-  "From project-based engineering",
-  "To system-based engineering platform",
-  "Regional EPC execution through EASE across East Africa",
-  "Compounding engineering capability over time",
+const externalExecution = ["EASE", "Contractors", "Project teams"];
+
+const lifecycle = [
+  "System Design",
+  "Application in Projects",
+  "Feedback and Performance Evaluation",
+  "System Refinement",
 ];
 
 export default function PlatformPage() {
   return (
     <>
       <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
-        <div className="pointer-events-none absolute inset-0 ase-hero-media">
-          <video
-            className="ase-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            aria-hidden="true"
-          >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
+        <div className="pointer-events-none absolute inset-0 ase-hero-media" />
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 py-24 lg:py-28">
           <div className="max-w-4xl">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+            <span className="ase-kicker text-ase-gray">
               Platform
             </span>
-            <h1 className="mt-5 text-4xl font-semibold text-ase-white">
-              A System That Builds Engineering Capability Over Time
+            <h1 className="ase-page-title mt-5 text-ase-white">
+              A structured platform governing engineering logic across projects
             </h1>
+            <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
+              ASE is the system layer that develops, standardizes, and improves
+              reusable structural systems. Its role is to govern engineering
+              logic across applications and delivery environments.
+            </p>
           </div>
         </div>
       </section>
@@ -69,16 +65,16 @@ export default function PlatformPage() {
       <section className="ase-section-paper">
         <div className="ase-container py-20">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              What the Platform Is
+            <span className="ase-kicker text-ase-gray">
+              What the ASE Platform Is
             </span>
-            <h2 className="mt-4 text-3xl font-semibold text-ase-black">
-              A closed engineering platform that develops systems through use.
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              A coherent system governing structural engineering logic.
             </h2>
-            <p className="mt-4 text-base leading-7 text-ase-muted">
-              The platform connects engineering definition, execution, and
-              feedback into one operating model so structural capability grows
-              stronger over time.
+            <p className="ase-body-lg mt-4 text-ase-muted">
+              The platform defines how structural problems are approached, how
+              engineering decisions are made, and how performance is measured
+              and improved over time.
             </p>
           </div>
         </div>
@@ -87,17 +83,27 @@ export default function PlatformPage() {
       <section className="ase-section-light">
         <div className="ase-container py-20">
           <div className="max-w-3xl">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Why it Exists
+            <span className="ase-kicker text-ase-gray">
+              Role of ASE
             </span>
-            <h2 className="mt-4 text-3xl font-semibold text-ase-black">
-              Engineering should not restart from zero on every project.
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              ASE creates a stable and evolving engineering foundation.
             </h2>
-            <p className="mt-4 text-base leading-7 text-ase-muted">
-              The model exists so knowledge can be retained, improved, and
-              reused rather than remaining trapped inside isolated project
-              outputs.
-            </p>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {aseRole.map((item, index) => (
+              <article
+                key={item.title}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <h3 className="text-lg font-semibold text-ase-black">
+                  {item.title}
+                </h3>
+                <p className="text-base leading-7 text-ase-muted">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -105,79 +111,26 @@ export default function PlatformPage() {
       <section className="ase-section-paper">
         <div className="ase-container py-20">
           <div className="mb-12 text-center">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              System Diagram
+            <span className="ase-kicker text-ase-gray">
+              Execution Layer
             </span>
-            <h2 className="mt-4 text-3xl font-semibold text-ase-black">
-              Engineering → Execution → Feedback → Refinement
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              Delivery entities apply the platform within project environments.
             </h2>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
-            <div className="ase-card text-center">
-              <h3 className="text-xl font-semibold text-ase-black">Engineering</h3>
-            </div>
-            <div className="flex items-center justify-center text-2xl text-ase-blue">
-              <span aria-hidden="true">→</span>
-            </div>
-            <div className="ase-card text-center">
-              <h3 className="text-xl font-semibold text-ase-black">Execution</h3>
-            </div>
-            <div className="flex items-center justify-center text-2xl text-ase-blue">
-              <span aria-hidden="true">→</span>
-            </div>
-            <div className="ase-card text-center">
-              <h3 className="text-xl font-semibold text-ase-black">Feedback</h3>
-            </div>
-            <div className="flex items-center justify-center text-2xl text-ase-blue">
-              <span aria-hidden="true">→</span>
-            </div>
-            <div className="ase-card text-center">
-              <h3 className="text-xl font-semibold text-ase-black">Refinement</h3>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="ase-section-paper">
-        <div className="ase-container grid gap-8 py-20 md:grid-cols-2">
-          {platformStructure.map((item, index) => (
-            <article
-              key={item.title}
-              className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-            >
-              <h2 className="text-lg font-semibold text-ase-black">
-                {item.title}
-              </h2>
-              <p className="text-base leading-7 text-ase-muted">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="ase-section-light">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr]">
-          <div className="flex flex-col gap-4">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              Outcome
-            </span>
-            <h2 className="text-3xl font-semibold text-ase-black">
-              A strategic platform rather than isolated project work.
-            </h2>
-            <p className="text-base leading-7 text-ase-muted">
-              The differentiator is not only who delivers, but how engineering
-              knowledge is created, retained, and improved across projects.
+            <p className="ase-body-lg mx-auto mt-4 max-w-3xl text-ase-muted">
+              Project execution is carried by delivery entities such as EASE,
+              contractors, or project teams. ASE ensures the engineering within
+              those environments remains structured, consistent, and capable of
+              continuous improvement.
             </p>
           </div>
-          <div className="grid gap-4">
-            {outcomes.map((step, index) => (
+          <div className="grid gap-6 md:grid-cols-3">
+            {externalExecution.map((item, index) => (
               <div
-                key={step}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+                key={item}
+                className={`ase-card text-center ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <p className="text-base leading-7 text-ase-black">{step}</p>
+                <p className="text-lg font-semibold text-ase-black">{item}</p>
               </div>
             ))}
           </div>
@@ -186,93 +139,69 @@ export default function PlatformPage() {
 
       <section className="ase-section-light">
         <div className="ase-container py-20">
-          <div className="mb-12">
-            <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-              ASE vs EASE
+          <div className="mb-12 text-center">
+            <span className="ase-kicker text-ase-gray">
+              System Lifecycle
             </span>
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              System Design → Application → Evaluation → Refinement
+            </h2>
           </div>
-
-          <div className="grid gap-6 md:grid-cols-[1fr_auto_1fr] md:items-stretch">
-            <article className="ase-card ase-card-tint-blue h-full">
-              <div className="mb-2 flex items-center">
-                <Image
-                  src="/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL.png"
-                  alt="ASE"
-                  width={160}
-                  height={40}
-                  className="h-10 w-auto object-contain"
-                />
+          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
+            {lifecycle.map((step, index) => (
+              <div key={step} className={index < lifecycle.length - 1 ? "contents" : ""}>
+                <div className="ase-card ase-flow-card text-center">
+                  <p className="text-base leading-7 text-ase-black">{step}</p>
+                </div>
+                {index < lifecycle.length - 1 ? (
+                  <div className="ase-arrow">
+                    <span aria-hidden="true">→</span>
+                  </div>
+                ) : null}
               </div>
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                ASE
-              </span>
-              <h2 className="text-2xl font-semibold text-ase-black">
-                Defines systems
-              </h2>
-              <p className="flex-1 text-base leading-7 text-ase-muted">
-                ASE defines structural problems, develops engineering systems,
-                and retains technical logic inside the platform.
-              </p>
-            </article>
-
-            <div className="flex flex-col items-center justify-center gap-3 text-ase-blue">
-              <span className="text-3xl leading-none">→</span>
-              <span className="text-sm uppercase tracking-[0.28em]">↺ Feedback</span>
-            </div>
-
-            <article className="ase-card ase-card-tint-red h-full">
-              <div className="mb-2 flex items-center">
-                <Image
-                  src="/media/Profile%20images/Profile%20images/Ease%2001%20%281%29.png"
-                  alt="EASE"
-                  width={120}
-                  height={44}
-                  className="h-10 w-auto object-contain"
-                />
-              </div>
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                EASE
-              </span>
-              <h2 className="text-2xl font-semibold text-ase-black">
-                Executes systems
-              </h2>
-              <p className="flex-1 text-base leading-7 text-ase-muted">
-                EASE applies those systems in projects, generating performance
-                feedback that helps refine future engineering.
-              </p>
-              <a
-                href="https://www.ease-int.com"
-                target="_blank"
-                rel="noreferrer"
-                className="mt-2 text-sm uppercase tracking-[0.28em] text-ase-blue"
-              >
-                Know More About EASE
-              </a>
-            </article>
+            ))}
           </div>
         </div>
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container py-16">
-          <div className="grid gap-6 rounded-[28px] border border-ase-border bg-white px-8 py-8 lg:grid-cols-[1fr_220px] lg:items-center">
-            <div className="flex flex-col gap-3">
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                Strategic Platform Development
-              </span>
-              <p className="text-base leading-7 text-ase-muted">
-                The broader platform model is supported by aligned strategic development, helping engineering capability grow across execution environments and markets.
+        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr]">
+          <div className="flex flex-col gap-4">
+            <span className="ase-kicker text-ase-gray">
+              Outcome
+            </span>
+            <h2 className="ase-section-title text-ase-black">
+              The platform turns engineering into structured, repeatable capability.
+            </h2>
+            <p className="ase-body-lg text-ase-muted">
+              The differentiator is the way engineering knowledge is
+              structured, retained, and improved across applications.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr] md:items-center">
+            <div className="ase-card text-center">
+              <p className="text-base leading-7 text-ase-black">
+                Isolated, project-based work
               </p>
             </div>
-            <div className="flex justify-start lg:justify-end">
-              <Image
-                src="/media/Profile%20images/Profile%20images/Solstice.png"
-                alt="Solstice Ventures"
-                width={180}
-                height={60}
-                className="h-10 w-auto object-contain"
-              />
+            <div className="flex items-center justify-center text-2xl text-ase-blue">
+              <span aria-hidden="true">→</span>
             </div>
+            <div className="ase-card ase-card-tint-blue text-center">
+              <p className="text-base leading-7 text-ase-black">
+                Structured, repeatable, system-driven capability
+              </p>
+            </div>
+          </div>
+          <div>
+            <Link
+              href="https://www.ease-int.com"
+              className="text-sm uppercase tracking-[0.28em] text-ase-blue"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Learn More About EASE
+            </Link>
           </div>
         </div>
       </section>
