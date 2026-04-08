@@ -83,59 +83,30 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 grid gap-12 py-24 lg:grid-cols-[1fr_0.95fr] lg:items-center">
           <div className="flex flex-col gap-8">
-            <div className="ase-kicker text-white/80">
-              {site.tagline}
-            </div>
             <h1 className="ase-hero-title">
               Engineering Systems for Scalable Structural Delivery
             </h1>
-            <p className="max-w-2xl text-sm uppercase tracking-[0.3em] text-white/78">
-              AfriSpecialized Engineering (ASE)
-            </p>
-            <p className="ase-body-lg max-w-2xl text-white/84">
-              ASE develops the structural engineering systems that enable
-              complex projects to be delivered with consistency, efficiency,
-              and control. It operates as a platform, defining how engineering
-              is structured, applied, and continuously improved across
-              projects.
-            </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/platform" className="ase-btn ase-btn-primary">
                 Explore the Platform
               </Link>
+              <Link href="/engage" className="ase-btn ase-btn-primary">
+                Engage
+              </Link>
             </div>
           </div>
 
-          <div className="w-full max-w-xl justify-self-end">
-            <div className="ase-hero-construct">
+          <div className="flex w-full justify-center lg:justify-end">
+            <div className="ase-hero-logo-stage">
               <div className="ase-hero-orb" />
-              <div className="flex justify-end pr-2 pt-2">
-                <Image
-                  src="/Brand/01%20Logo/SVG/White/white-HORIZONTAL.svg"
-                  alt="ASE"
-                  width={700}
-                  height={164}
-                  className="ase-logo-drift relative z-10 h-24 w-auto sm:h-28 lg:h-32"
-                  priority
-                />
-              </div>
-              <div className="ase-hero-gridline" />
-              <div className="ase-hero-copy">
-                <div className="ase-hero-copy-card">
-                  <span className="ase-hero-copy-label">What ASE Is</span>
-                  <p className="ase-hero-copy-text">
-                    A structural engineering platform that designs,
-                    standardizes, and improves reusable engineering systems.
-                  </p>
-                </div>
-                <div className="ase-hero-copy-card">
-                  <span className="ase-hero-copy-label">Operating Role</span>
-                  <p className="ase-hero-copy-text">
-                    ASE leads the engineering system architecture, while
-                    project delivery remains with execution partners.
-                  </p>
-                </div>
-              </div>
+              <Image
+                src="/white-VERTICAL_FullName.png"
+                alt="ASE"
+                width={560}
+                height={700}
+                className="ase-logo-drift relative z-10 h-40 w-auto sm:h-48 lg:h-[19rem]"
+                priority
+              />
             </div>
           </div>
         </div>
@@ -143,16 +114,19 @@ export default function Home() {
 
       <section className="ase-section-light">
         <div className="ase-container py-20">
-          <div className="grid gap-10 rounded-[28px] border border-ase-border bg-white px-8 py-10 shadow-[0_24px_48px_-34px_rgba(39,39,41,0.18)] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid gap-10 rounded-[28px] border border-ase-border bg-white px-8 py-10 shadow-[0_24px_48px_-34px_rgba(39,39,41,0.18)] lg:grid-cols-[0.86fr_1.14fr]">
             <div className="flex flex-col gap-4">
               <span className="ase-kicker text-ase-gray">
-                What ASE Is
+                {site.tagline}
               </span>
               <h2 className="ase-section-title text-ase-black">
                 ASE exists as the system layer for structural engineering.
               </h2>
+              <p className="text-sm uppercase tracking-[0.3em] text-ase-gray">
+                AfriSpecialized Engineering (ASE)
+              </p>
             </div>
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               <p className="ase-body-lg text-ase-muted">
                 ASE defines how structural engineering is approached and
                 applied through structured methodologies, standardized
@@ -163,6 +137,24 @@ export default function Home() {
                 partners, while ASE maintains the engineering foundation that
                 can be applied, tested, and improved over time.
               </p>
+              <div className="grid gap-3 pt-2 md:grid-cols-2">
+                <div className="rounded-[22px] border border-ase-border-soft bg-[rgba(56,70,157,0.06)] px-5 py-4">
+                  <p className="text-sm uppercase tracking-[0.26em] text-ase-gray">
+                    Role
+                  </p>
+                  <p className="mt-2 text-base leading-7 text-ase-black">
+                    Designs, standardizes, and improves reusable engineering systems.
+                  </p>
+                </div>
+                <div className="rounded-[22px] border border-ase-border-soft bg-[rgba(197,43,53,0.06)] px-5 py-4">
+                  <p className="text-sm uppercase tracking-[0.26em] text-ase-gray">
+                    Application
+                  </p>
+                  <p className="mt-2 text-base leading-7 text-ase-black">
+                    Supports delivery teams with a stable engineering foundation.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

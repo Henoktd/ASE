@@ -29,6 +29,18 @@ export default function AboutPage() {
   return (
     <>
       <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="pointer-events-none absolute inset-0 ase-hero-media" />
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 py-24 lg:py-32">
@@ -87,31 +99,16 @@ export default function AboutPage() {
 
       <section className="ase-section-light">
         <div className="ase-container py-20">
-          <div className="grid gap-10 lg:grid-cols-[1fr_220px] lg:items-start">
-            <div>
+          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
+            <div className="max-w-4xl">
               <span className="ase-kicker text-ase-gray">
                 Strategic Role
               </span>
               <h2 className="ase-section-title mt-4 text-ase-black">
                 ASE operates as a system layer across delivery environments.
               </h2>
-              <div className="mt-10 grid gap-6 md:grid-cols-3">
-                {strategicRole.map((item, index) => (
-                  <article
-                    key={item.title}
-                    className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-                  >
-                    <h3 className="text-lg font-semibold text-ase-black">
-                      {item.title}
-                    </h3>
-                    <p className="text-base leading-7 text-ase-muted">
-                      {item.description}
-                    </p>
-                  </article>
-                ))}
-              </div>
             </div>
-            <div className="pt-2 lg:text-right">
+            <div className="lg:text-right">
               <Link
                 href="/platform"
                 className="text-sm uppercase tracking-[0.28em] text-ase-blue"
@@ -119,6 +116,21 @@ export default function AboutPage() {
                 Explore Platform
               </Link>
             </div>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {strategicRole.map((item, index) => (
+              <article
+                key={item.title}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <h3 className="text-lg font-semibold text-ase-black">
+                  {item.title}
+                </h3>
+                <p className="text-base leading-7 text-ase-muted">
+                  {item.description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
       </section>

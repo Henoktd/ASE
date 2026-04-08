@@ -1,6 +1,39 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 
+function LearningIcon({ type }: { type: "data" | "constraints" | "feedback" }) {
+  const common = "h-5 w-5";
+
+  if (type === "data") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+        <ellipse cx="12" cy="6.5" rx="6.5" ry="2.5" />
+        <path d="M5.5 6.5v6c0 1.38 2.91 2.5 6.5 2.5s6.5-1.12 6.5-2.5v-6" />
+        <path d="M5.5 12.5v5c0 1.38 2.91 2.5 6.5 2.5s6.5-1.12 6.5-2.5v-5" />
+      </svg>
+    );
+  }
+
+  if (type === "constraints") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+        <path d="M12 3v18" />
+        <path d="M5 8h14" />
+        <path d="M7 16h10" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+      <path d="M7 8H4V5" />
+      <path d="M4 8a8 8 0 0 1 13.66-4.66" />
+      <path d="M17 16h3v3" />
+      <path d="M20 16a8 8 0 0 1-13.66 4.66" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Applications",
   description:
@@ -39,15 +72,27 @@ const roleItems = [
 ];
 
 const learningItems = [
-  "Performance data",
-  "Identified constraints",
-  "Execution feedback",
+  { label: "Performance data", icon: "data" as const },
+  { label: "Identified constraints", icon: "constraints" as const },
+  { label: "Execution feedback", icon: "feedback" as const },
 ];
 
 export default function ApplicationsPage() {
   return (
     <>
       <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="pointer-events-none absolute inset-0 ase-hero-media" />
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 py-24 lg:py-28">
@@ -147,9 +192,12 @@ export default function ApplicationsPage() {
           </div>
           <div className="mt-10 grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
             {learningItems.map((step, index) => (
-              <div key={step} className={index < learningItems.length - 1 ? "contents" : ""}>
+              <div key={step.label} className={index < learningItems.length - 1 ? "contents" : ""}>
                 <div className="ase-card ase-flow-card text-center">
-                  <p className="text-base leading-7 text-ase-black">{step}</p>
+                  <span className={`ase-icon-chip mx-auto ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}>
+                    <LearningIcon type={step.icon} />
+                  </span>
+                  <p className="text-base leading-7 text-ase-black">{step.label}</p>
                 </div>
                 {index < learningItems.length - 1 ? (
                   <div className="ase-arrow">

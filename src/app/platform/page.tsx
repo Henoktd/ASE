@@ -1,6 +1,46 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+function ProcessIcon({ type }: { type: "design" | "apply" | "evaluate" | "refine" }) {
+  const common = "h-5 w-5";
+
+  if (type === "design") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+        <path d="M4 17.5 17.5 4l2.5 2.5L6.5 20H4v-2.5Z" />
+        <path d="M13 6.5 17.5 11" />
+      </svg>
+    );
+  }
+
+  if (type === "apply") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+        <rect x="4" y="5" width="16" height="14" rx="2" />
+        <path d="M8 9h8M8 13h5" />
+      </svg>
+    );
+  }
+
+  if (type === "evaluate") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+        <path d="M5 19V9" />
+        <path d="M10 19V5" />
+        <path d="M15 19v-7" />
+        <path d="M20 19V11" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className={common} aria-hidden="true">
+      <path d="M20 12a8 8 0 1 1-2.34-5.66" />
+      <path d="M20 4v6h-6" />
+    </svg>
+  );
+}
+
 export const metadata: Metadata = {
   title: "Platform",
   description:
@@ -33,16 +73,28 @@ const aseRole = [
 const externalExecution = ["EASE", "Contractors", "Project teams"];
 
 const lifecycle = [
-  "System Design",
-  "Application in Projects",
-  "Feedback and Performance Evaluation",
-  "System Refinement",
+  { label: "System Design", icon: "design" as const },
+  { label: "Application in Projects", icon: "apply" as const },
+  { label: "Feedback and Performance Evaluation", icon: "evaluate" as const },
+  { label: "System Refinement", icon: "refine" as const },
 ];
 
 export default function PlatformPage() {
   return (
     <>
       <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <video
+            className="ase-hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          >
+            <source src="/media/ase-hero.mp4" type="video/mp4" />
+          </video>
+        </div>
         <div className="pointer-events-none absolute inset-0 ase-hero-media" />
         <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
         <div className="ase-container relative z-10 py-24 lg:py-28">
@@ -143,15 +195,18 @@ export default function PlatformPage() {
             <span className="ase-kicker text-ase-gray">
               System Lifecycle
             </span>
-            <h2 className="ase-section-title mt-4 text-ase-black">
+            <h2 className="ase-section-title mt-4 font-semibold text-ase-black">
               System Design → Application → Evaluation → Refinement
             </h2>
           </div>
           <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
             {lifecycle.map((step, index) => (
-              <div key={step} className={index < lifecycle.length - 1 ? "contents" : ""}>
+              <div key={step.label} className={index < lifecycle.length - 1 ? "contents" : ""}>
                 <div className="ase-card ase-flow-card text-center">
-                  <p className="text-base leading-7 text-ase-black">{step}</p>
+                  <span className={`ase-icon-chip mx-auto ${index % 2 === 0 ? "ase-icon-chip-blue" : "ase-icon-chip-red"}`}>
+                    <ProcessIcon type={step.icon} />
+                  </span>
+                  <p className="text-base leading-7 text-ase-black">{step.label}</p>
                 </div>
                 {index < lifecycle.length - 1 ? (
                   <div className="ase-arrow">
