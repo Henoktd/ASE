@@ -14,25 +14,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Start ssh-agent and add deploy key
+      - name: Prepare deploy key
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
-          SSH_PASSPHRASE: ${{ secrets.CPANEL_SSH_PASSPHRASE }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y expect rsync
+          sudo apt-get install -y rsync
           install -d -m 700 "$HOME/.ssh"
           printf '%s\n' "$SSH_PRIVATE_KEY" > "$HOME/.ssh/deploy_key"
           chmod 600 "$HOME/.ssh/deploy_key"
-          eval "$(ssh-agent -s)"
-          expect <<'EOF'
-          log_user 1
-          spawn ssh-add $env(HOME)/.ssh/deploy_key
-          expect "Enter passphrase for*"
-          send "$env(SSH_PASSPHRASE)\r"
-          expect eof
-          EOF
-          ssh-add -l
 
       - name: Trust cPanel host
         run: |
