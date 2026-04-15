@@ -14,12 +14,27 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+        run: npm ci
+
+      - name: Build application
+        env:
+          NEXT_TELEMETRY_DISABLED: 1
+        run: npm run build
+
       - name: Prepare deploy key
         env:
           SSH_PRIVATE_KEY: ${{ secrets.CPANEL_SSH_PRIVATE_KEY }}
         run: |
           sudo apt-get update
-          sudo apt-get install -y rsync
           install -d -m 700 "$HOME/.ssh"
           printf '%s\n' "$SSH_PRIVATE_KEY" > "$HOME/.ssh/deploy_key"
           chmod 600 "$HOME/.ssh/deploy_key"
@@ -35,22 +50,15 @@ jobs:
           tar \
             --exclude=".git" \
             --exclude=".github" \
-            --exclude="node_modules" \
-            --exclude=".next" \
             --exclude="devserver.out.log" \
             --exclude="devserver.err.log" \
             -czf - . | ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "cd '${{ secrets.CPANEL_APP_ROOT }}' && tar -xzf -"
 
-      - name: Install dependencies, build, and restart Passenger app
+      - name: Restart Passenger app
         run: |
           ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
           set -e
           cd "${{ secrets.CPANEL_APP_ROOT }}"
-          export PATH="$(dirname '${{ secrets.CPANEL_NODE_PATH }}'):\$PATH"
-          export NEXT_TELEMETRY_DISABLED=1
-          "${{ secrets.CPANEL_NODE_PATH }}" -v
-          "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" ci
-          "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" run build
           mkdir -p tmp
           touch tmp/restart.txt
           EOF
