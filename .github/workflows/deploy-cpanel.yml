@@ -21,12 +21,13 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y expect rsync
-          install -d -m 700 ~/.ssh
-          printf '%s\n' "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$SSH_PRIVATE_KEY" > "$HOME/.ssh/deploy_key"
+          chmod 600 "$HOME/.ssh/deploy_key"
           eval "$(ssh-agent -s)"
           expect <<'EOF'
-          spawn ssh-add ~/.ssh/deploy_key
+          log_user 1
+          spawn ssh-add $env(HOME)/.ssh/deploy_key
           expect "Enter passphrase for*"
           send "$env(SSH_PASSPHRASE)\r"
           expect eof
