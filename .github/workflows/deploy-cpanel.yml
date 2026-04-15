@@ -46,6 +46,8 @@ jobs:
           ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
           set -e
           cd "${{ secrets.CPANEL_APP_ROOT }}"
+          export PATH="$(dirname '${{ secrets.CPANEL_NODE_PATH }}'):\$PATH"
+          "${{ secrets.CPANEL_NODE_PATH }}" -v
           "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" ci
           "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" run build
           mkdir -p tmp
