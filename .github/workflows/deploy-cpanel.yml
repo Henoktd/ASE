@@ -47,6 +47,7 @@ jobs:
           set -e
           cd "${{ secrets.CPANEL_APP_ROOT }}"
           export PATH="$(dirname '${{ secrets.CPANEL_NODE_PATH }}'):\$PATH"
+          export NEXT_TELEMETRY_DISABLED=1
           "${{ secrets.CPANEL_NODE_PATH }}" -v
           "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" ci
           "${{ secrets.CPANEL_NODE_PATH }}" "${{ secrets.CPANEL_NPM_CLI }}" run build
