@@ -54,6 +54,20 @@ jobs:
             --exclude="devserver.err.log" \
             -czf - . | ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "cd '${{ secrets.CPANEL_APP_ROOT }}' && tar -xzf -"
 
+      - name: Configure Passenger app root
+        run: |
+          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
+          set -e
+          cat > "/home/${{ secrets.CPANEL_USER }}/public_html/.htaccess" <<'HTACCESS'
+          PassengerEnabled on
+          PassengerAppRoot ${{ secrets.CPANEL_APP_ROOT }}
+          PassengerBaseURI /
+          PassengerAppType node
+          PassengerStartupFile app.js
+          PassengerNodejs ${{ secrets.CPANEL_NODE_PATH }}
+          HTACCESS
+          EOF
+
       - name: Restart Passenger app
         run: |
           ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
