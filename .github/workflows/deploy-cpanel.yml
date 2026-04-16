@@ -68,6 +68,30 @@ jobs:
           HTACCESS
           EOF
 
+      - name: Write production environment file
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_SECURE: ${{ secrets.SMTP_SECURE }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SMTP_FROM: ${{ secrets.SMTP_FROM }}
+          CONTACT_TO_EMAIL: ${{ secrets.CONTACT_TO_EMAIL }}
+        run: |
+          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
+          set -e
+          cat > "${{ secrets.CPANEL_APP_ROOT }}/.env.production" <<ENVFILE
+          SMTP_HOST=${SMTP_HOST}
+          SMTP_PORT=${SMTP_PORT}
+          SMTP_SECURE=${SMTP_SECURE}
+          SMTP_USER=${SMTP_USER}
+          SMTP_PASS=${SMTP_PASS}
+          SMTP_FROM=${SMTP_FROM}
+          CONTACT_TO_EMAIL=${CONTACT_TO_EMAIL}
+          ENVFILE
+          chmod 600 "${{ secrets.CPANEL_APP_ROOT }}/.env.production"
+          EOF
+
       - name: Restart Passenger app
         run: |
           ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
