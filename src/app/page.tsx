@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
-  title: "Home",
+  title: "Structural Engineering Platform",
   description:
     "Engineering systems for scalable structural delivery through a structured structural engineering platform.",
   path: "/",
