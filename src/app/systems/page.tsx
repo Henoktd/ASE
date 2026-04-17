@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { createMetadata } from "@/lib/seo";
 
 function EvolutionIcon({ type }: { type: "application" | "feedback" | "performance" }) {
   const common = "h-5 w-5";
@@ -33,11 +34,12 @@ function EvolutionIcon({ type }: { type: "application" | "feedback" | "performan
   );
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Systems",
   description:
-    "Reusable structural engineering systems developed and managed by ASE.",
-};
+    "Reusable structural engineering systems developed and managed by ASE for repeatable structural application.",
+  path: "/systems",
+});
 
 const systems = [
   {

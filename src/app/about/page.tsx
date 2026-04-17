@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "About ASE",
   description:
-    "Why ASE exists as a system layer for structural engineering.",
-};
+    "Learn why ASE exists as a structural engineering platform and system layer across delivery environments.",
+  path: "/about",
+});
 
 const strategicRole = [
   {

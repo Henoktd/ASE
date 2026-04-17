@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { createMetadata } from "@/lib/seo";
 
 function LearningIcon({ type }: { type: "data" | "constraints" | "feedback" }) {
   const common = "h-5 w-5";
@@ -34,11 +35,12 @@ function LearningIcon({ type }: { type: "data" | "constraints" | "feedback" }) {
   );
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Applications",
   description:
-    "Where ASE systems are applied across structural environments.",
-};
+    "See where ASE systems are applied across structural environments where consistency, control, and performance matter.",
+  path: "/applications",
+});
 
 const applicationAreas = [
   {

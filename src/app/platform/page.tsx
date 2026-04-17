@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { createMetadata } from "@/lib/seo";
 
 function ProcessIcon({ type }: { type: "design" | "apply" | "evaluate" | "refine" }) {
   const common = "h-5 w-5";
@@ -41,11 +42,12 @@ function ProcessIcon({ type }: { type: "design" | "apply" | "evaluate" | "refine
   );
 }
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Platform",
   description:
-    "The ASE platform develops and governs reusable structural engineering systems.",
-};
+    "Explore how the ASE platform governs reusable structural engineering systems across projects and delivery environments.",
+  path: "/platform",
+});
 
 const aseRole = [
   {

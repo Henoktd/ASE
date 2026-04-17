@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { createMetadata } from "@/lib/seo";
 import {
   contactEmail,
   locationLabel,
 } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Engage",
   description:
-    "Engage with ASE to apply structured engineering systems within project environments.",
-};
+    "Engage with ASE to apply structured engineering systems within project environments and delivery workflows.",
+  path: "/engage",
+});
 
 const engageAudience = [
   "Developers",

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { site } from "@/lib/site";
 
 const dmSans = localFont({
   src: [
@@ -20,12 +21,56 @@ const dmSans = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: "ASE | Structural Engineering Platform",
     template: "%s | ASE",
   },
   description:
     "ASE is a structural engineering platform that standardizes, applies, and continuously improves reusable engineering systems across complex structural environments.",
+  applicationName: site.fullName,
+  keywords: [
+    "Afrispecialized Engineering",
+    "ASE",
+    "structural engineering platform",
+    "engineering systems",
+    "structural systems",
+    "engineering standardization",
+    "engineering capability",
+    "construction engineering systems",
+  ],
+  openGraph: {
+    type: "website",
+    url: site.url,
+    title: `${site.name} | ${site.tagline}`,
+    description: site.description,
+    siteName: site.fullName,
+    images: [
+      {
+        url: site.ogImage,
+        width: 1200,
+        height: 630,
+        alt: `${site.fullName} logo`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} | ${site.tagline}`,
+    description: site.description,
+    images: [site.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -33,9 +78,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        name: site.fullName,
+        alternateName: site.name,
+        url: site.url,
+        logo: `${site.url}${site.ogImage}`,
+        description: site.description,
+      },
+      {
+        "@type": "WebSite",
+        name: site.fullName,
+        url: site.url,
+        description: site.description,
+      },
+    ],
+  };
+
   return (
     <html lang="en">
       <body className={`${dmSans.variable} antialiased`}>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <div className="min-h-screen bg-ase-paper text-ase-black">
           <SiteHeader />
           <main id="content">{children}</main>

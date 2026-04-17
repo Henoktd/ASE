@@ -2,11 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { createMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createMetadata({
   title: "Home",
-  description: "Engineering systems for scalable structural delivery.",
-};
+  description:
+    "Engineering systems for scalable structural delivery through a structured structural engineering platform.",
+  path: "/",
+});
 
 const platformPillars = [
   {
