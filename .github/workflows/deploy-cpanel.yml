@@ -9,6 +9,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      SSH_PORT: ${{ secrets.CPANEL_SSH_PORT || '22' }}
 
     steps:
       - name: Checkout repository
@@ -40,23 +42,39 @@ jobs:
           chmod 600 "$HOME/.ssh/deploy_key"
 
       - name: Trust cPanel host
+        env:
+          CPANEL_HOST: ${{ secrets.CPANEL_HOST }}
         run: |
-          ssh-keyscan -H "${{ secrets.CPANEL_HOST }}" >> ~/.ssh/known_hosts
+          if [ -z "$CPANEL_HOST" ]; then
+            echo "::error::CPANEL_HOST secret is empty or not set." >&2
+            exit 1
+          fi
+          case "$CPANEL_HOST" in
+            *"://"*|*"/"*|*" "*)
+              echo "::error::CPANEL_HOST must be a bare hostname or IP (no https://, path, or spaces). Got something that looks like a URL." >&2
+              exit 1
+              ;;
+          esac
+          ssh-keyscan -T 15 -p "$SSH_PORT" -H "$CPANEL_HOST" >> ~/.ssh/known_hosts || true
+          if ! grep -q . ~/.ssh/known_hosts 2>/dev/null; then
+            echo "::error::ssh-keyscan got no host keys from $CPANEL_HOST on port $SSH_PORT. Check that the host is correct, SSH is enabled for your cPanel account, and the SSH port is right (many cPanel hosts use 2222 or 21098 instead of 22 — set the CPANEL_SSH_PORT secret if so)." >&2
+            exit 1
+          fi
           chmod 644 ~/.ssh/known_hosts
 
       - name: Upload repository to cPanel
         run: |
-          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "mkdir -p '${{ secrets.CPANEL_APP_ROOT }}'"
+          ssh -p "$SSH_PORT" -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "mkdir -p '${{ secrets.CPANEL_APP_ROOT }}'"
           tar \
             --exclude=".git" \
             --exclude=".github" \
             --exclude="devserver.out.log" \
             --exclude="devserver.err.log" \
-            -czf - . | ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "cd '${{ secrets.CPANEL_APP_ROOT }}' && tar -xzf -"
+            -czf - . | ssh -p "$SSH_PORT" -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" "cd '${{ secrets.CPANEL_APP_ROOT }}' && tar -xzf -"
 
       - name: Configure Passenger app root
         run: |
-          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
+          ssh -p "$SSH_PORT" -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
           set -e
           cat > "/home/${{ secrets.CPANEL_USER }}/public_html/.htaccess" <<'HTACCESS'
           PassengerEnabled on
@@ -78,7 +96,7 @@ jobs:
           SMTP_FROM: ${{ secrets.SMTP_FROM }}
           CONTACT_TO_EMAIL: ${{ secrets.CONTACT_TO_EMAIL }}
         run: |
-          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
+          ssh -p "$SSH_PORT" -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
           set -e
           cat > "${{ secrets.CPANEL_APP_ROOT }}/.env.production" <<ENVFILE
           SMTP_HOST=${SMTP_HOST}
@@ -94,7 +112,7 @@ jobs:
 
       - name: Restart Passenger app
         run: |
-          ssh -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
+          ssh -p "$SSH_PORT" -i "$HOME/.ssh/deploy_key" -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=20 "${{ secrets.CPANEL_USER }}@${{ secrets.CPANEL_HOST }}" <<EOF
           set -e
           cd "${{ secrets.CPANEL_APP_ROOT }}"
           mkdir -p tmp
