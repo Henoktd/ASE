@@ -1,14 +1,14 @@
 export const site = {
   name: "ASE",
-  fullName: "Afrispecialized Engineering",
+  fullName: "ASE International",
   tagline: "Structural Engineering Platform",
-  url: "https://afrispecialized.com",
+  url: "https://ase-int.com",
   ogImage: "/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL.png",
   description:
     "ASE is a structural engineering platform that designs, standardizes, and continuously improves engineering systems used to deliver complex structures at scale.",
 };
 
-export const contactEmail = "info@afrispecialized.com";
+export const contactEmail = "info@ase-int.com";
 export const contactPhone = "Phone to be confirmed";
 export const locationLabel = "Addis Ababa, Ethiopia";
 

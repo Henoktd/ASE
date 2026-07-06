@@ -51,7 +51,7 @@ export default function AboutPage() {
               About ASE
             </span>
             <p className="mt-4 text-sm uppercase tracking-[0.3em] text-white/78">
-              Afrispecialized Engineering
+              ASE International
             </p>
             <h1 className="ase-page-title mt-6">
               Why ASE exists as a structural engineering platform

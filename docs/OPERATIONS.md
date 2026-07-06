@@ -17,7 +17,7 @@ The site runs as a Node.js application on cPanel using Passenger.
 
 Key production pieces:
 
-- domain: `afrispecialized.com`
+- domain: `ase-int.com`
 - cPanel Application Manager app: `ASE Website`
 - app root: `/home/afrispxy/nodeapps/ase`
 - startup file: `app.js`
@@ -116,8 +116,8 @@ The live server should receive a generated environment file:
 Intended production behavior:
 
 - authenticated sender account may be different from the visible sender
-- visible sender can remain `info@afrispecialized.com`
-- recipient can remain `info@afrispecialized.com`
+- visible sender can be updated to `info@ase-int.com`
+- recipient can be updated to `info@ase-int.com`
 
 This allows future mailbox changes without code changes.
 
@@ -127,7 +127,7 @@ Current SMTP model was designed so it can later move from a personal authenticat
 
 Recommended long-term setup:
 
-- shared mailbox: `info@afrispecialized.com`
+- shared mailbox: `info@ase-int.com`
 - dedicated sender mailbox for website authentication
 - `Send As` permission granted to the dedicated sender
 

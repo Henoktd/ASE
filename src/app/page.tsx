@@ -126,7 +126,7 @@ export default function Home() {
                 ASE exists as the system layer for structural engineering.
               </h2>
               <p className="text-sm uppercase tracking-[0.3em] text-ase-gray">
-                AfriSpecialized Engineering (ASE)
+                ASE International
               </p>
             </div>
             <div className="grid gap-5">

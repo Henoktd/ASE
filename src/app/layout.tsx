@@ -30,8 +30,8 @@ export const metadata: Metadata = {
     "ASE is a structural engineering platform that standardizes, applies, and continuously improves reusable engineering systems across complex structural environments.",
   applicationName: site.fullName,
   keywords: [
-    "Afrispecialized Engineering",
     "ASE",
+    "ASE International",
     "structural engineering platform",
     "engineering systems",
     "structural systems",

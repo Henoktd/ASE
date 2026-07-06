@@ -1,6 +1,6 @@
 # ASE Website
 
-Production website for **AfriSpecialized Engineering (ASE)**.
+Production website for **ASE International (ASE)**.
 
 This project is a Next.js application deployed to cPanel through GitHub Actions and served with Passenger/Node.js.
 
@@ -92,7 +92,7 @@ Production workflow file:
 
 Current live host details:
 
-- domain: `afrispecialized.com`
+- domain: `ase-int.com`
 - cPanel user: `afrispxy`
 - app root: `/home/afrispxy/nodeapps/ase`
 - Passenger startup file: `app.js`
@@ -111,7 +111,7 @@ Email delivery uses SMTP through environment variables. Nothing should be hardco
 Current intended production pattern:
 
 - authenticated SMTP account can be changed later without code changes
-- visible sender can remain `info@afrispecialized.com`
+- visible sender can be updated to `info@ase-int.com`
 - destination inbox is controlled by `CONTACT_TO_EMAIL`
 
 If SMTP stops working:
