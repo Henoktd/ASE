@@ -103,10 +103,10 @@ export default function Home() {
             <div className="ase-hero-logo-stage">
               <div className="ase-hero-orb" />
               <Image
-                src="/white-VERTICAL_FullName.png"
+                src="/Brand/01%20Logo/SVG/White/white-VERTICAL.svg"
                 alt="ASE"
-                width={560}
-                height={700}
+                width={354}
+                height={335}
                 className="ase-logo-drift relative z-10 h-40 w-auto sm:h-48 lg:h-[19rem]"
                 priority
               />
