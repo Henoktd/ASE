@@ -38,3 +38,31 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/engage", label: "Engage" },
 ];
+
+export type NavGroup = {
+  label: string;
+  href?: string;
+  items?: { href: string; label: string }[];
+};
+
+export const navGroups: NavGroup[] = [
+  { label: "Systems", href: "/solutions" },
+  { label: "Sectors", href: "/industries" },
+  {
+    label: "How We Work",
+    items: [
+      { href: "/engineering", label: "Engineering" },
+      { href: "/manufacturing", label: "Manufacturing" },
+      { href: "/project-delivery", label: "Project Delivery" },
+    ],
+  },
+  { label: "Projects", href: "/projects" },
+  { label: "Knowledge", href: "/knowledge" },
+  {
+    label: "Company",
+    items: [
+      { href: "/about", label: "About ASE" },
+      { href: "/engage", label: "Engage" },
+    ],
+  },
+];

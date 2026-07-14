@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -47,46 +48,17 @@ const articles = [
 export default function KnowledgePage() {
   return (
     <>
-      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <video
-            className="ase-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="pointer-events-none absolute inset-0 ase-hero-media" />
-        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
-        <div className="ase-container relative z-10 py-24 lg:py-28">
-          <div className="max-w-4xl">
-            <span className="ase-kicker text-ase-gray">
-              Knowledge Centre
-            </span>
-            <h1 className="ase-page-title mt-5 text-ase-white">
-              Understand the challenge before the system.
-            </h1>
-            <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
-              ASE publishes engineering knowledge to help the market understand
-              construction challenges — and only then presents the systems that
-              solve them.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        kicker="Knowledge Centre"
+        title="Understand the challenge before the system."
+        lede="ASE publishes engineering knowledge to help the market understand construction challenges — and only then presents the systems that solve them."
+      />
 
       <section className="ase-section-light">
-        <div className="ase-container grid gap-6 py-20 md:grid-cols-2">
-          {articles.map((article, index) => (
-            <article
-              key={article.title}
-              className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-            >
-              <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+        <div className="ase-container grid gap-6 py-16 md:grid-cols-2 lg:py-20">
+          {articles.map((article) => (
+            <article key={article.title} className="ase-card-quiet">
+              <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
                 {article.topic}
               </span>
               <h2 className="text-xl font-semibold text-ase-black">
@@ -104,15 +76,13 @@ export default function KnowledgePage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container flex flex-col gap-6 py-20 text-center">
-          <span className="ase-kicker text-ase-gray">
-            Next Step
-          </span>
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+          <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Facing one of these challenges on a live project?
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/solutions" className="ase-btn ase-btn-primary">
+            <Link href="/solutions" className="ase-btn ase-btn-ghost">
               Explore the Systems
             </Link>
             <Link href="/engage" className="ase-btn ase-btn-primary">

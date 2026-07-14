@@ -541,6 +541,270 @@ body {
   }
 }
 
+@layer components {
+  /* Interior page header — light, fast, no video */
+  .ase-page-header {
+    position: relative;
+    background:
+      radial-gradient(circle at 85% 0%, rgba(56, 70, 157, 0.1), transparent 45%),
+      var(--ase-paper);
+    border-bottom: 1px solid var(--ase-border-soft);
+  }
+
+  .ase-page-header-accent {
+    display: block;
+    height: 4px;
+    width: 64px;
+    border-radius: 999px;
+    background: var(--ase-red);
+  }
+
+  /* Quiet card — the default surface; color is reserved for accents */
+  .ase-card-quiet {
+    border: 1px solid var(--ase-border-soft);
+    border-radius: 24px;
+    padding: 28px;
+    background: var(--ase-white);
+    box-shadow: 0 18px 40px -34px var(--ase-shadow-deep);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: transform 220ms ease, box-shadow 220ms ease,
+      border-color 220ms ease;
+  }
+
+  .ase-card-quiet:hover {
+    transform: translateY(-3px);
+    border-color: rgba(56, 70, 157, 0.28);
+    box-shadow: 0 26px 48px -30px rgba(56, 70, 157, 0.28);
+  }
+
+  .ase-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* System icon tile */
+  .ase-system-icon {
+    display: flex;
+    height: 52px;
+    width: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    background: rgba(56, 70, 157, 0.08);
+    color: var(--ase-blue);
+  }
+
+  /* Engineering cycle — circular diagram on desktop */
+  .ase-cycle {
+    position: relative;
+    width: 100%;
+    max-width: 620px;
+    margin-inline: auto;
+    aspect-ratio: 1;
+  }
+
+  .ase-cycle-ring {
+    position: absolute;
+    inset: 11%;
+    border-radius: 999px;
+    border: 1.5px dashed rgba(56, 70, 157, 0.35);
+  }
+
+  .ase-cycle-center {
+    position: absolute;
+    inset: 33%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: var(--ase-white);
+    border: 1px solid var(--ase-border-soft);
+    box-shadow: 0 22px 44px -30px var(--ase-shadow-deep);
+    text-align: center;
+    padding: 16px;
+  }
+
+  .ase-cycle-node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--ase-white);
+    border: 1px solid rgba(56, 70, 157, 0.22);
+    border-radius: 999px;
+    padding: 9px 14px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--ase-black);
+    box-shadow: 0 14px 28px -22px rgba(56, 70, 157, 0.5);
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .ase-cycle-node-loop {
+    background: var(--ase-red);
+    border-color: var(--ase-red);
+    color: var(--ase-white);
+  }
+
+  /* Engineering cycle — vertical rail on mobile */
+  .ase-cycle-list {
+    position: relative;
+    display: grid;
+    gap: 14px;
+    padding-left: 26px;
+  }
+
+  .ase-cycle-list::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 10px;
+    bottom: 10px;
+    width: 1.5px;
+    background: linear-gradient(
+      180deg,
+      rgba(56, 70, 157, 0.4),
+      rgba(197, 43, 53, 0.5)
+    );
+  }
+
+  .ase-cycle-list-item {
+    position: relative;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ase-black);
+  }
+
+  .ase-cycle-list-item::before {
+    content: "";
+    position: absolute;
+    left: -25px;
+    top: 7px;
+    height: 10px;
+    width: 10px;
+    border-radius: 999px;
+    background: var(--ase-blue);
+  }
+
+  .ase-cycle-list-item:last-child::before {
+    background: var(--ase-red);
+  }
+
+  /* Brand architecture chevron flow */
+  .ase-chevron-flow {
+    display: grid;
+    gap: 10px;
+  }
+
+  .ase-chevron {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 18px 26px;
+    font-size: 13px;
+    font-weight: 650;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ase-white);
+    background: var(--ase-blue);
+  }
+
+  /* Header nav with dropdown groups */
+  .ase-nav-group {
+    position: relative;
+  }
+
+  .ase-nav-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px);
+    min-width: 230px;
+    display: grid;
+    gap: 2px;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid var(--ase-border-soft);
+    background: var(--ase-white);
+    box-shadow: 0 30px 60px -30px var(--ase-shadow-deep);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+    z-index: 60;
+  }
+
+  .ase-nav-group:hover .ase-nav-dropdown,
+  .ase-nav-group:focus-within .ase-nav-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .ase-nav-dropdown-link {
+    display: block;
+    border-radius: 12px;
+    padding: 11px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ase-muted);
+    transition: background-color 160ms ease, color 160ms ease;
+  }
+
+  .ase-nav-dropdown-link:hover {
+    background: rgba(56, 70, 157, 0.08);
+    color: var(--ase-blue);
+  }
+
+  .ase-nav-dropdown-link-active {
+    background: rgba(56, 70, 157, 0.1);
+    color: var(--ase-blue);
+  }
+}
+
+@media (min-width: 768px) {
+  @layer components {
+    .ase-chevron-flow {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+
+    .ase-chevron {
+      clip-path: polygon(
+        0 0,
+        calc(100% - 22px) 0,
+        100% 50%,
+        calc(100% - 22px) 100%,
+        0 100%,
+        22px 50%
+      );
+      margin-right: -14px;
+      padding: 22px 34px 22px 40px;
+    }
+
+    .ase-chevron:first-child {
+      clip-path: polygon(
+        0 0,
+        calc(100% - 22px) 0,
+        100% 50%,
+        calc(100% - 22px) 100%,
+        0 100%
+      );
+      padding-left: 30px;
+    }
+  }
+}
+
 @media (min-width: 1024px) {
   @layer components {
     .ase-hero-copy {

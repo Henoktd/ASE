@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -44,58 +45,32 @@ const deliveryNetwork = [
   },
 ];
 
+const deliveryOutcomes = [
+  "One engineering standard from design to erection",
+  "Delivery partners qualified and supported by ASE",
+  "Feedback from every completed building returned to engineering",
+];
+
 export default function ProjectDeliveryPage() {
   return (
     <>
-      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <video
-            className="ase-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="pointer-events-none absolute inset-0 ase-hero-media" />
-        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
-        <div className="ase-container relative z-10 py-24 lg:py-28">
-          <div className="max-w-4xl">
-            <span className="ase-kicker text-ase-gray">
-              Project Delivery
-            </span>
-            <h1 className="ase-page-title mt-5 text-ase-white">
-              Engineered systems deserve engineered delivery.
-            </h1>
-            <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
-              A system only creates value when it is delivered as designed. ASE
-              projects are delivered through a structured network of
-              implementation partners, each working to ASE systems, standards,
-              and engineering supervision.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        kicker="Project Delivery"
+        title="Engineered systems deserve engineered delivery."
+        lede="A system only creates value when it is delivered as designed. ASE projects are delivered through a structured network of implementation partners, each working to ASE systems, standards, and engineering supervision."
+      />
 
       <section className="ase-section-light">
-        <div className="ase-container py-20">
+        <div className="ase-container py-16 lg:py-20">
           <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
-              Delivery Models
-            </span>
+            <span className="ase-kicker text-ase-blue">Delivery Models</span>
             <h2 className="ase-section-title mt-4 text-ase-black">
               Matched to each client and each market.
             </h2>
           </div>
           <div className="grid gap-6 lg:grid-cols-3">
-            {deliveryModels.map((item, index) => (
-              <article
-                key={item.title}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
+            {deliveryModels.map((item) => (
+              <article key={item.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
                   {item.title}
                 </h3>
@@ -109,22 +84,17 @@ export default function ProjectDeliveryPage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container py-20">
+        <div className="ase-container py-16 lg:py-20">
           <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
-              Delivery Network
-            </span>
+            <span className="ase-kicker text-ase-blue">Delivery Network</span>
             <h2 className="ase-section-title mt-4 text-ase-black">
               Who delivers ASE systems today.
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {deliveryNetwork.map((item, index) => (
-              <article
-                key={item.name}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+            {deliveryNetwork.map((item) => (
+              <article key={item.name} className="ase-card-quiet">
+                <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
                   {item.role}
                 </span>
                 <h3 className="text-xl font-semibold text-ase-black">
@@ -150,11 +120,9 @@ export default function ProjectDeliveryPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container grid gap-10 py-20 lg:grid-cols-[1fr_1.1fr]">
+        <div className="ase-container grid gap-10 py-16 lg:grid-cols-[1fr_1.1fr] lg:py-20">
           <div className="flex flex-col gap-4">
-            <span className="ase-kicker text-ase-gray">
-              Outcome
-            </span>
+            <span className="ase-kicker text-ase-blue">Outcome</span>
             <h2 className="ase-section-title text-ase-black">
               The system arrives on site the way it left the drawing.
             </h2>
@@ -165,15 +133,8 @@ export default function ProjectDeliveryPage() {
             </p>
           </div>
           <div className="grid gap-4">
-            {[
-              "One engineering standard from design to erection",
-              "Delivery partners qualified and supported by ASE",
-              "Feedback from every completed building returned to engineering",
-            ].map((item, index) => (
-              <div
-                key={item}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
+            {deliveryOutcomes.map((item) => (
+              <div key={item} className="ase-card-quiet">
                 <p className="text-base leading-7 text-ase-black">{item}</p>
               </div>
             ))}
@@ -182,10 +143,8 @@ export default function ProjectDeliveryPage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container flex flex-col gap-6 py-20 text-center">
-          <span className="ase-kicker text-ase-gray">
-            Next Step
-          </span>
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+          <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Discuss the right delivery model for your project.
           </h2>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -69,52 +70,17 @@ const clientSegments = [
 export default function IndustriesPage() {
   return (
     <>
-      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <video
-            className="ase-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="pointer-events-none absolute inset-0 ase-hero-media" />
-        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
-        <div className="ase-container relative z-10 py-24 lg:py-28">
-          <div className="max-w-4xl">
-            <span className="ase-kicker text-ase-gray">
-              Industries
-            </span>
-            <h1 className="ase-page-title mt-5 text-ase-white">
-              Every sector builds differently. The engineering discipline is
-              the same.
-            </h1>
-            <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
-              ASE positions engineering solutions by the nature of the client
-              relationship and the delivery capability behind each project —
-              not by project size or product type.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        kicker="Industries"
+        title="Every sector builds differently. The engineering discipline is the same."
+        lede="ASE positions engineering solutions by the nature of the client relationship and the delivery capability behind each project — not by project size or product type."
+      />
 
       <section className="ase-section-light">
-        <div className="ase-container py-20">
-          <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
-              Where ASE Systems Build
-            </span>
-            <h2 className="ase-section-title mt-4 text-ase-black">
-              Four sectors, one systems architecture.
-            </h2>
-          </div>
+        <div className="ase-container py-16 lg:py-20">
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {industries.map((item) => (
-              <article key={item.title} className="ase-card overflow-hidden p-0">
+              <article key={item.title} className="ase-card-quiet overflow-hidden p-0">
                 <div className="aspect-[4/3] overflow-hidden border-b border-ase-border-soft bg-white">
                   <Image
                     src={item.image}
@@ -125,9 +91,9 @@ export default function IndustriesPage() {
                   />
                 </div>
                 <div className="flex flex-col gap-3 p-6">
-                  <h3 className="text-xl font-semibold text-ase-black">
+                  <h2 className="text-xl font-semibold text-ase-black">
                     {item.title}
-                  </h3>
+                  </h2>
                   <p className="text-base leading-7 text-ase-muted">
                     {item.description}
                   </p>
@@ -139,11 +105,9 @@ export default function IndustriesPage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container py-20">
+        <div className="ase-container py-16 lg:py-20">
           <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
-              How Clients Engage
-            </span>
+            <span className="ase-kicker text-ase-blue">How Clients Engage</span>
             <h2 className="ase-section-title mt-4 text-ase-black">
               Positioned by relationship, not by project size.
             </h2>
@@ -154,11 +118,8 @@ export default function IndustriesPage() {
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {clientSegments.map((segment, index) => (
-              <article
-                key={segment.title}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
+            {clientSegments.map((segment) => (
+              <article key={segment.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
                   {segment.title}
                 </h3>
@@ -172,15 +133,13 @@ export default function IndustriesPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-20 text-center">
-          <span className="ase-kicker text-ase-gray">
-            Next Step
-          </span>
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+          <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Bring us the challenge your sector is facing.
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link href="/solutions" className="ase-btn ase-btn-primary">
+            <Link href="/solutions" className="ase-btn ase-btn-ghost">
               Explore the Systems
             </Link>
             <Link href="/engage" className="ase-btn ase-btn-primary">

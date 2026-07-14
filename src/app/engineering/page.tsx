@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CycleDiagram from "@/components/CycleDiagram";
+import PageHeader from "@/components/PageHeader";
 import { createMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = createMetadata({
@@ -8,18 +10,6 @@ export const metadata: Metadata = createMetadata({
     "ASE is an engineering company that develops systems. Structural engineering, value engineering, constructability review, optimization, peer review, and digital engineering underpin every ASE Building System.",
   path: "/engineering",
 });
-
-const ecosystemCycle = [
-  "Research",
-  "Engineering",
-  "System Development",
-  "Digital Engineering",
-  "Manufacturing",
-  "Project Delivery",
-  "Operational Building",
-  "Knowledge Feedback",
-  "Continuous Improvement",
-];
 
 const engineeringServices = [
   {
@@ -85,74 +75,35 @@ const digitalEngineering = [
 export default function EngineeringPage() {
   return (
     <>
-      <section className="ase-section-dark ase-section-transition relative overflow-hidden text-ase-white">
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <video
-            className="ase-hero-video"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-          >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <div className="pointer-events-none absolute inset-0 ase-hero-media" />
-        <div className="pointer-events-none absolute inset-0 ase-hero-overlay" />
-        <div className="ase-container relative z-10 py-24 lg:py-28">
-          <div className="max-w-4xl">
-            <span className="ase-kicker text-ase-gray">
-              Engineering
-            </span>
-            <h1 className="ase-page-title mt-5 text-ase-white">
-              ASE is an engineering company that develops systems.
-            </h1>
-            <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
-              Engineering is not a service alongside the systems — it is what
-              defines them. ASE owns the engineering, structural design
-              methodologies, standards, and intellectual property behind every
-              ASE Building System.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        kicker="Engineering"
+        title="An engineering company that develops systems."
+        lede="Engineering is what defines every ASE Building System. ASE owns the engineering, structural design methodologies, standards, and intellectual property behind the platform."
+      />
 
-      <section className="ase-section-paper">
-        <div className="ase-container py-20">
-          <div className="mb-12 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
+      <section className="ase-section-light">
+        <div className="ase-container grid gap-14 py-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-center lg:py-24">
+          <div className="flex flex-col gap-5">
+            <span className="ase-kicker text-ase-blue">
               The Engineering Cycle
             </span>
-            <h2 className="ase-section-title mt-4 text-ase-black">
-              Every system moves through the same cycle — and every completed
-              building strengthens it.
+            <h2 className="ase-section-title text-ase-black">
+              Every system moves through the same cycle.
             </h2>
-            <p className="ase-body-lg mt-4 text-ase-muted">
+            <p className="ase-body-lg text-ase-muted">
               Feedback from completed, operational buildings is captured and
               returned to research and engineering, so each project strengthens
               the systems used in the next.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {ecosystemCycle.map((step, index) => (
-              <div
-                key={step}
-                className={`ase-card ase-flow-card text-center ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
-                <p className="text-base font-semibold leading-7 text-ase-black">
-                  {step}
-                </p>
-              </div>
-            ))}
-          </div>
+          <CycleDiagram />
         </div>
       </section>
 
-      <section className="ase-section-light">
-        <div className="ase-container py-20">
+      <section className="ase-section-paper">
+        <div className="ase-container py-16 lg:py-20">
           <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
+            <span className="ase-kicker text-ase-blue">
               Engineering Services
             </span>
             <h2 className="ase-section-title mt-4 text-ase-black">
@@ -160,11 +111,8 @@ export default function EngineeringPage() {
             </h2>
           </div>
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {engineeringServices.map((service, index) => (
-              <article
-                key={service.title}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
+            {engineeringServices.map((service) => (
+              <article key={service.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
                   {service.title}
                 </h3>
@@ -177,10 +125,10 @@ export default function EngineeringPage() {
         </div>
       </section>
 
-      <section className="ase-section-dark ase-section-transition text-ase-white">
-        <div className="ase-container py-20">
+      <section className="ase-section-dark text-ase-white">
+        <div className="ase-container py-16 lg:py-20">
           <div className="mb-10 max-w-3xl">
-            <span className="ase-kicker text-ase-gray">
+            <span className="ase-kicker text-white/70">
               Digital Engineering
             </span>
             <h2 className="ase-section-title">
@@ -202,11 +150,9 @@ export default function EngineeringPage() {
         </div>
       </section>
 
-      <section className="ase-section-paper">
-        <div className="ase-container flex flex-col gap-6 py-20 text-center">
-          <span className="ase-kicker text-ase-gray">
-            Next Step
-          </span>
+      <section className="ase-section-light">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+          <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             See the systems this engineering produces.
           </h2>
@@ -214,7 +160,7 @@ export default function EngineeringPage() {
             <Link href="/solutions" className="ase-btn ase-btn-primary">
               ASE Building Systems
             </Link>
-            <Link href="/engage" className="ase-btn ase-btn-primary">
+            <Link href="/engage" className="ase-btn ase-btn-ghost">
               Engage with ASE
             </Link>
           </div>
