@@ -120,9 +120,6 @@ export default function EngagePage() {
                 key={item.question}
                 className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  0{index + 1}
-                </span>
                 <h3 className="text-lg font-semibold text-ase-black">
                   {item.question}
                 </h3>

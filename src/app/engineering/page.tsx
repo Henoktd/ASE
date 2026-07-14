@@ -140,9 +140,6 @@ export default function EngineeringPage() {
                 key={step}
                 className={`ase-card ase-flow-card text-center ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  0{index + 1}
-                </span>
                 <p className="text-base font-semibold leading-7 text-ase-black">
                   {step}
                 </p>

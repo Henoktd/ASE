@@ -105,7 +105,7 @@ export default function SolutionsPage() {
               Solutions — ASE Building Systems
             </span>
             <h1 className="ase-page-title mt-5 text-ase-white">
-              Engineered building systems, not products.
+              Complete building systems, engineered end to end.
             </h1>
             <p className="ase-body-lg mt-5 max-w-3xl text-white/82">
               Buildings fail on cost, schedule, and quality when they are
@@ -153,9 +153,6 @@ export default function SolutionsPage() {
                 key={system.title}
                 className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  0{index + 1}
-                </span>
                 <h3 className="text-xl font-semibold text-ase-black">
                   {system.title}
                 </h3>
@@ -237,7 +234,7 @@ export default function SolutionsPage() {
             Next Step
           </span>
           <h2 className="ase-section-title text-ase-black">
-            Start with your project challenge, not a product list.
+            Start with your project challenge.
           </h2>
           <p className="ase-body-lg mx-auto max-w-2xl text-ase-muted">
             Tell us what your project needs to achieve. ASE engineers the

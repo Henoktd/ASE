@@ -177,9 +177,6 @@ export default function Home() {
                 key={item.title}
                 className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  0{index + 1}
-                </span>
                 <h3 className="text-xl font-semibold text-ase-black">
                   {item.title}
                 </h3>
@@ -202,10 +199,10 @@ export default function Home() {
               ASE is an engineering company that develops systems.
             </h2>
             <p className="ase-body-lg text-ase-muted">
-              Not a product company. ASE answers construction challenges with
-              engineered systems — developed, manufactured, and delivered as an
-              integrated engineering group, with every completed building
-              feeding knowledge back into the next.
+              ASE answers construction challenges with engineered systems —
+              developed, manufactured, and delivered as an integrated
+              engineering group, with every completed building feeding
+              knowledge back into the next.
             </p>
             <Link href="/engineering" className="ase-btn ase-btn-primary w-fit">
               Inside the Engineering
@@ -217,9 +214,6 @@ export default function Home() {
                 key={step}
                 className={`ase-card ase-flow-card text-center ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
               >
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  0{index + 1}
-                </span>
                 <p className="text-sm font-semibold leading-6 text-ase-black">
                   {step}
                 </p>
