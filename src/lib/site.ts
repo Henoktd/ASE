@@ -1,11 +1,11 @@
 export const site = {
   name: "ASE",
   fullName: "ASE International",
-  tagline: "Structural Engineering Platform",
+  tagline: "Engineering Better Ways to Build",
   url: "https://ase-int.com",
   ogImage: "/Brand/01%20Logo/Full%20Color/fullcolor-HORIZONTAL.png",
   description:
-    "ASE is a structural engineering platform that designs, standardizes, and continuously improves engineering systems used to deliver complex structures at scale.",
+    "ASE is an engineering group that develops, manufactures, and delivers engineered construction systems. ASE Building Systems is the platform through which engineering, digital technology, industrial manufacturing, and project delivery come together.",
 };
 
 export const contactEmail = "info@ase-int.com";
@@ -18,7 +18,7 @@ export const partnerLinks = [
   {
     name: "EASE",
     url: "https://www.ease-int.com",
-    role: "Delivery Partner",
+    role: "Implementation Partner — Ethiopia",
   },
   {
     name: "SVH",
@@ -28,10 +28,13 @@ export const partnerLinks = [
 ];
 
 export const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/platform", label: "Platform" },
-  { href: "/systems", label: "Systems" },
-  { href: "/applications", label: "Applications" },
+  { href: "/solutions", label: "Solutions" },
+  { href: "/industries", label: "Industries" },
+  { href: "/engineering", label: "Engineering" },
+  { href: "/manufacturing", label: "Manufacturing" },
+  { href: "/project-delivery", label: "Delivery" },
+  { href: "/projects", label: "Projects" },
+  { href: "/knowledge", label: "Knowledge" },
   { href: "/about", label: "About" },
   { href: "/engage", label: "Engage" },
 ];

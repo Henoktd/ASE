@@ -3,17 +3,15 @@ import { site } from "@/lib/site";
 
 const routes = [
   "",
-  "/about",
-  "/applications",
-  "/capabilities",
-  "/contact",
-  "/engage",
-  "/engineering-environment",
-  "/engineering-systems",
-  "/insights",
-  "/platform",
+  "/solutions",
+  "/industries",
+  "/engineering",
+  "/manufacturing",
+  "/project-delivery",
   "/projects",
-  "/systems",
+  "/knowledge",
+  "/about",
+  "/engage",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

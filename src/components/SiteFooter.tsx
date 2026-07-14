@@ -45,8 +45,8 @@ export default function SiteFooter() {
               Engage
             </span>
             <span className="text-sm leading-6 text-white/80">
-              Structured engagement at the system level for developers,
-              contractors, and infrastructure stakeholders.
+              Bring us your project challenge — ASE engineers the system that
+              answers it.
             </span>
             <span className="text-ase-white">{contactEmail}</span>
             <span>{locationLabel}</span>

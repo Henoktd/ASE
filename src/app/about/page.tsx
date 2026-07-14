@@ -5,26 +5,43 @@ import { createMetadata } from "@/lib/seo";
 export const metadata: Metadata = createMetadata({
   title: "About ASE",
   description:
-    "Learn why ASE exists as a structural engineering platform and system layer across delivery environments.",
+    "ASE is an engineering group that develops, manufactures, and delivers engineered construction systems through a clear group operating model.",
   path: "/about",
 });
 
-const strategicRole = [
+const groupModel = [
   {
-    title: "System layer across engineering environments",
+    name: "ASE",
+    role: "Engineering and standards",
     description:
-      "ASE organizes structural logic above project-specific execution so methodology remains coherent across applications.",
+      "Develops engineering systems and standards, and owns the associated intellectual property. ASE is the engineering authority of the group.",
   },
   {
-    title: "Capability-building platform",
+    name: "Technowall Manufacturing PLC",
+    role: "Manufacturing",
     description:
-      "Its purpose is to grow engineering capability through systems, standards, and controlled iteration.",
+      "Manufactures engineered components in accordance with ASE standards and specifications.",
   },
   {
-    title: "Repository of engineering knowledge",
+    name: "EASE Engineering",
+    role: "Project delivery — Ethiopia",
     description:
-      "ASE retains structured learning so engineering does not reset with every new project cycle.",
+      "Delivers projects in Ethiopia using ASE systems.",
   },
+  {
+    name: "Strategic implementation partners",
+    role: "Other markets",
+    description:
+      "Deploy ASE systems in additional markets under the ASE market development framework, matched to each market individually.",
+  },
+];
+
+const brandArchitecture = [
+  "ASE",
+  "ASE Building Systems",
+  "Engineering Systems",
+  "Components",
+  "Projects",
 ];
 
 export default function AboutPage() {
@@ -54,7 +71,7 @@ export default function AboutPage() {
               ASE International
             </p>
             <h1 className="ase-page-title mt-6">
-              Why ASE exists as a structural engineering platform
+              An engineering company that develops systems.
             </h1>
           </div>
         </div>
@@ -64,12 +81,79 @@ export default function AboutPage() {
         <div className="ase-container py-20">
           <div className="mx-auto max-w-3xl text-center">
             <span className="ase-kicker text-ase-gray">
-              Why ASE Exists
+              Philosophy
             </span>
             <p className="mt-6 text-2xl font-medium leading-tight text-ase-black sm:text-3xl">
-              Engineering is often fragmented and project-specific. ASE exists
-              to transform it into a structured, system-driven discipline.
+              ASE develops, manufactures, and delivers engineered construction
+              systems as an integrated engineering group. Manufacturing is one
+              component of the value chain — the value itself is the
+              engineering.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="ase-section-paper">
+        <div className="ase-container py-20">
+          <div className="mb-10 max-w-3xl">
+            <span className="ase-kicker text-ase-gray">
+              Group Operating Model
+            </span>
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              One group. Clear roles. One set of standards.
+            </h2>
+          </div>
+          <div className="grid gap-6 md:grid-cols-2">
+            {groupModel.map((entity, index) => (
+              <article
+                key={entity.name}
+                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
+              >
+                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
+                  {entity.role}
+                </span>
+                <h3 className="text-xl font-semibold text-ase-black">
+                  {entity.name}
+                </h3>
+                <p className="text-base leading-7 text-ase-muted">
+                  {entity.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="ase-section-light">
+        <div className="ase-container py-20">
+          <div className="mb-12 text-center">
+            <span className="ase-kicker text-ase-gray">
+              Brand Architecture
+            </span>
+            <h2 className="ase-section-title mt-4 text-ase-black">
+              From the master brand to the built project.
+            </h2>
+            <p className="ase-body-lg mx-auto mt-4 max-w-3xl text-ase-muted">
+              ASE is the master brand. ASE Building Systems is the commercial
+              platform. Engineering systems sit beneath it; only components are
+              products; projects are the proof.
+            </p>
+          </div>
+          <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr_auto_1fr] md:items-center">
+            {brandArchitecture.map((level, index) => (
+              <div key={level} className={index < brandArchitecture.length - 1 ? "contents" : ""}>
+                <div className="ase-card ase-flow-card text-center">
+                  <p className="text-base font-semibold leading-7 text-ase-black">
+                    {level}
+                  </p>
+                </div>
+                {index < brandArchitecture.length - 1 ? (
+                  <div className="ase-arrow">
+                    <span aria-hidden="true">→</span>
+                  </div>
+                ) : null}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -78,104 +162,28 @@ export default function AboutPage() {
         <div className="ase-container grid gap-10 py-20 lg:grid-cols-[0.45fr_0.55fr] lg:items-center">
           <div className="flex flex-col gap-4">
             <span className="ase-kicker text-ase-gray">
-              What ASE Builds
+              How ASE Grows
             </span>
             <h2 className="ase-section-title text-ase-black">
-              Engineering systems, standardized methodologies, and structured frameworks for decision-making.
+              A stable architecture that compounds engineering knowledge.
             </h2>
             <p className="ase-body-lg text-ase-muted">
-              These form a reusable foundation for engineering across
-              applications, allowing structural capability to grow in a more
-              coherent and reusable way.
+              New systems are added within the same architecture as they are
+              developed. Feedback from every operational building returns to
+              research and engineering, so capability compounds rather than
+              resets with each project.
             </p>
+            <Link href="/engineering" className="ase-btn ase-btn-primary w-fit">
+              Inside the Engineering
+            </Link>
           </div>
           <div className="ase-card ase-card-tint-blue min-h-[260px] justify-center">
             <p className="text-base leading-7 text-ase-black">
-              The long-term purpose of ASE is to make structural engineering
-              more repeatable, more coherent, and more scalable across teams,
-              regions, and execution environments.
+              The long-term purpose of ASE is to make better ways to build
+              repeatable: engineered systems, industrial manufacturing, and
+              disciplined delivery, applied across Africa through partners who
+              share the same standards.
             </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="ase-section-light">
-        <div className="ase-container py-20">
-          <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-            <div className="max-w-4xl">
-              <span className="ase-kicker text-ase-gray">
-                Strategic Role
-              </span>
-              <h2 className="ase-section-title mt-4 text-ase-black">
-                ASE operates as a system layer across delivery environments.
-              </h2>
-            </div>
-            <div className="lg:text-right">
-              <Link
-                href="/platform"
-                className="text-sm uppercase tracking-[0.28em] text-ase-blue"
-              >
-                Explore Platform
-              </Link>
-            </div>
-          </div>
-          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {strategicRole.map((item, index) => (
-              <article
-                key={item.title}
-                className={`ase-card ${index % 2 === 0 ? "ase-card-tint-blue" : "ase-card-tint-red"}`}
-              >
-                <h3 className="text-lg font-semibold text-ase-black">
-                  {item.title}
-                </h3>
-                <p className="text-base leading-7 text-ase-muted">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="ase-section-paper">
-        <div className="ase-container py-20">
-          <div className="mx-auto max-w-4xl">
-            <div className="text-center">
-              <span className="ase-kicker text-ase-gray">
-                Independence
-              </span>
-              <h2 className="ase-section-title mt-4 text-ase-black">
-                ASE systems can be applied across multiple delivery partners,
-                ensuring flexibility, scalability, and broader impact.
-              </h2>
-            </div>
-
-            <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_120px_1fr] lg:items-center">
-              <div className="ase-card ase-flow-card text-center">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  ASE
-                </span>
-                <h3 className="text-2xl font-semibold text-ase-black">
-                  Defines Systems
-                </h3>
-              </div>
-
-              <div className="flex flex-col items-center justify-center gap-4 text-ase-blue">
-                <span className="text-4xl leading-none">→</span>
-                <span className="text-sm uppercase tracking-[0.28em]">
-                  Independent Use
-                </span>
-              </div>
-
-              <div className="ase-card ase-flow-card text-center">
-                <span className="text-xs uppercase tracking-[0.3em] text-ase-gray">
-                  Delivery Partners
-                </span>
-                <h3 className="text-2xl font-semibold text-ase-black">
-                  Apply Systems
-                </h3>
-              </div>
-            </div>
           </div>
         </div>
       </section>

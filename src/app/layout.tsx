@@ -23,21 +23,21 @@ const dmSans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "ASE | Structural Engineering Platform",
+    default: "ASE | Engineering Better Ways to Build",
     template: "%s | ASE",
   },
-  description:
-    "ASE is a structural engineering platform that standardizes, applies, and continuously improves reusable engineering systems across complex structural environments.",
+  description: site.description,
   applicationName: site.fullName,
   keywords: [
     "ASE",
     "ASE International",
-    "structural engineering platform",
-    "engineering systems",
+    "ASE Building Systems",
+    "engineered construction systems",
     "structural systems",
-    "engineering standardization",
-    "engineering capability",
-    "construction engineering systems",
+    "post-tensioning systems",
+    "housing systems",
+    "digital engineering",
+    "value engineering",
   ],
   openGraph: {
     type: "website",
