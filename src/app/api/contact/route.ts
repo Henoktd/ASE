@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { contactEmail } from "@/lib/site";
 
 export const runtime = "nodejs";
 
@@ -9,7 +10,6 @@ const requiredEnvVars = [
   "SMTP_USER",
   "SMTP_PASS",
   "SMTP_FROM",
-  "CONTACT_TO_EMAIL",
 ] as const;
 
 function getMissingEnvVars() {
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
 
     await transporter.sendMail({
       from: process.env.SMTP_FROM,
-      to: process.env.CONTACT_TO_EMAIL,
+      to: process.env.CONTACT_TO_EMAIL || contactEmail,
       replyTo: email,
       subject: `ASE website enquiry from ${name}`,
       text: [
