@@ -78,7 +78,7 @@ export default function IndustriesPage() {
 
       <section className="ase-section-light">
         <div className="ase-container py-16 lg:py-20">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4" data-anim-group>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {industries.map((item) => (
               <article key={item.title} className="ase-card-quiet overflow-hidden p-0">
                 <div className="aspect-[4/3] overflow-hidden border-b border-ase-border-soft bg-white">
@@ -118,7 +118,7 @@ export default function IndustriesPage() {
               the outcome.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3" data-anim-group>
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {clientSegments.map((segment) => (
               <article key={segment.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -134,7 +134,7 @@ export default function IndustriesPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Bring us the challenge your sector is facing.

@@ -55,7 +55,7 @@ export default function KnowledgePage() {
       />
 
       <section className="ase-section-light">
-        <div className="ase-container grid gap-6 py-16 md:grid-cols-2 lg:py-20" data-anim-group>
+        <div className="ase-container grid gap-6 py-16 md:grid-cols-2 lg:py-20">
           {articles.map((article) => (
             <article key={article.title} className="ase-card-quiet">
               <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
@@ -76,7 +76,7 @@ export default function KnowledgePage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Facing one of these challenges on a live project?
