@@ -72,6 +72,7 @@ export default function ProjectsPage() {
                     alt={project.title}
                     width={1200}
                     height={900}
+                    sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
                     className="h-full w-full object-cover"
                   />
                 </div>

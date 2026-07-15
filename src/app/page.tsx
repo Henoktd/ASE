@@ -90,8 +90,13 @@ export default function Home() {
             loop
             playsInline
             preload="metadata"
+            poster="/media/ase-hero-poster.webp"
           >
-            <source src="/media/ase-hero.mp4" type="video/mp4" />
+            <source
+              src="/media/ase-hero.mp4"
+              type="video/mp4"
+              media="(min-width: 768px)"
+            />
           </video>
         </div>
         <div className="pointer-events-none absolute inset-0 ase-hero-media" />
@@ -126,6 +131,7 @@ export default function Home() {
                 height={335}
                 className="ase-logo-drift relative z-10 h-40 w-auto sm:h-48 lg:h-[19rem]"
                 priority
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -254,6 +260,7 @@ export default function Home() {
                     alt={item.name}
                     width={1200}
                     height={900}
+                    sizes="(min-width: 1024px) 33vw, 100vw"
                     className="h-full w-full object-cover"
                   />
                 </div>

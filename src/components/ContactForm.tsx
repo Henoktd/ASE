@@ -101,7 +101,7 @@ export default function ContactForm() {
       <div className="flex flex-wrap items-center gap-4">
         <button
           type="submit"
-          className="ase-btn ase-btn-primary"
+          className="ase-btn ase-btn-primary min-w-40"
           disabled={status === "sending"}
         >
           {status === "sending" ? "Sending" : "Send message"}

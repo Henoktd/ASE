@@ -6,16 +6,8 @@ import SiteHeader from "@/components/SiteHeader";
 import { site } from "@/lib/site";
 
 const dmSans = localFont({
-  src: [
-    {
-      path: "./fonts/dm-sans-var.ttf",
-      style: "normal",
-    },
-    {
-      path: "./fonts/dm-sans-italic-var.ttf",
-      style: "italic",
-    },
-  ],
+  src: "./fonts/dm-sans-var.woff2",
+  style: "normal",
   variable: "--font-dm-sans",
   display: "swap",
 });
