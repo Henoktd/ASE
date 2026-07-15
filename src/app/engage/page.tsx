@@ -64,7 +64,7 @@ export default function EngagePage() {
               same.
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2" data-anim-group>
             {engageAudience.map((item) => (
               <div key={item} className="ase-card-quiet">
                 <p className="text-base leading-7 text-ase-black">{item}</p>
@@ -84,7 +84,7 @@ export default function EngagePage() {
               Four questions before any technology is discussed.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2" data-anim-group>
             {conversationFrame.map((item) => (
               <article key={item.question} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">

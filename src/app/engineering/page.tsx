@@ -96,7 +96,9 @@ export default function EngineeringPage() {
               the systems used in the next.
             </p>
           </div>
-          <CycleDiagram />
+          <div data-anim>
+            <CycleDiagram />
+          </div>
         </div>
       </section>
 
@@ -110,7 +112,7 @@ export default function EngineeringPage() {
               The disciplines that underpin every system.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3" data-anim-group>
             {engineeringServices.map((service) => (
               <article key={service.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -135,7 +137,7 @@ export default function EngineeringPage() {
               A digital backbone under every system.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3" data-anim-group>
             {digitalEngineering.map((item) => (
               <div key={item.title} className="ase-panel-dark px-6 py-6">
                 <h3 className="text-xl font-semibold text-ase-white">
@@ -151,7 +153,7 @@ export default function EngineeringPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             See the systems this engineering produces.

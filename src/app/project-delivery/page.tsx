@@ -68,7 +68,7 @@ export default function ProjectDeliveryPage() {
               Matched to each client and each market.
             </h2>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3" data-anim-group>
             {deliveryModels.map((item) => (
               <article key={item.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -91,7 +91,7 @@ export default function ProjectDeliveryPage() {
               Who delivers ASE systems today.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2" data-anim-group>
             {deliveryNetwork.map((item) => (
               <article key={item.name} className="ase-card-quiet">
                 <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
@@ -132,7 +132,7 @@ export default function ProjectDeliveryPage() {
               engineered to provide — on schedule and with verified quality.
             </p>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-4" data-anim-group>
             {deliveryOutcomes.map((item) => (
               <div key={item} className="ase-card-quiet">
                 <p className="text-base leading-7 text-ase-black">{item}</p>
@@ -143,7 +143,7 @@ export default function ProjectDeliveryPage() {
       </section>
 
       <section className="ase-section-paper">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Discuss the right delivery model for your project.

@@ -63,7 +63,7 @@ export default function AboutPage() {
               One group. Clear roles. One set of standards.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2" data-anim-group>
             {groupModel.map((entity) => (
               <article key={entity.name} className="ase-card-quiet">
                 <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
@@ -96,7 +96,7 @@ export default function AboutPage() {
               products; projects are the proof.
             </p>
           </div>
-          <div className="ase-chevron-flow">
+          <div className="ase-chevron-flow" data-anim-group>
             {brandArchitecture.map((level, index) => (
               <div
                 key={level}

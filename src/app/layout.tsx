@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import Cursor from "@/components/fx/Cursor";
+import ScrollFX from "@/components/fx/ScrollFX";
+import SmoothScroll from "@/components/fx/SmoothScroll";
 import { site } from "@/lib/site";
 
 const dmSans = localFont({
@@ -97,6 +100,9 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        <SmoothScroll />
+        <ScrollFX />
+        <Cursor />
         <div className="min-h-screen bg-ase-paper text-ase-black">
           <SiteHeader />
           <main id="content">{children}</main>

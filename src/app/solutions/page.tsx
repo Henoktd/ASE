@@ -44,7 +44,7 @@ export default function SolutionsPage() {
 
       <section className="ase-section-light">
         <div className="ase-container py-16 lg:py-20">
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4" data-anim-group>
             {buildingSystems.map((system) => (
               <Link
                 key={system.slug}
@@ -84,7 +84,7 @@ export default function SolutionsPage() {
               system adopted within a project.
             </p>
           </div>
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-3" data-anim-group>
             {assurancePlatforms.map((platform) => (
               <div key={platform.name} className="ase-panel-dark px-6 py-6">
                 <p className="text-xs uppercase tracking-[0.3em] text-white/64">
@@ -103,7 +103,7 @@ export default function SolutionsPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             Start with your project challenge.

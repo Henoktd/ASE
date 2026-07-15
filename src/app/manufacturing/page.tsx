@@ -60,7 +60,7 @@ export default function ManufacturingPage() {
               One component of the value chain — not the value proposition.
             </h2>
           </div>
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-6 lg:grid-cols-3" data-anim-group>
             {manufacturingPrinciples.map((item) => (
               <article key={item.title} className="ase-card-quiet">
                 <h3 className="text-lg font-semibold text-ase-black">
@@ -83,7 +83,7 @@ export default function ManufacturingPage() {
               Manufactured to ASE standards.
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="grid gap-6 md:grid-cols-2" data-anim-group>
             {manufacturers.map((item) => (
               <article key={item.name} className="ase-card-quiet">
                 <span className="text-xs uppercase tracking-[0.3em] text-ase-blue">
@@ -102,7 +102,7 @@ export default function ManufacturingPage() {
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
           <span className="ase-kicker text-ase-blue">Next Step</span>
           <h2 className="ase-section-title text-ase-black">
             From factory to structure.

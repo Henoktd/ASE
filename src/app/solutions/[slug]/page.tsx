@@ -48,7 +48,7 @@ export default async function SystemDetailPage({
       />
 
       <section className="ase-section-light">
-        <div className="ase-container grid gap-10 py-16 lg:grid-cols-2 lg:py-20">
+        <div className="ase-container grid gap-10 py-16 lg:grid-cols-2 lg:py-20" data-anim-group>
           <div className="ase-card-quiet">
             <span className="ase-kicker text-ase-red">The Challenge</span>
             <p className="ase-body-lg text-ase-black">{system.problem}</p>
@@ -67,7 +67,7 @@ export default async function SystemDetailPage({
             <h2 className="ase-section-title mt-4 text-ase-black">
               What it includes
             </h2>
-            <ul className="mt-8 grid gap-3">
+            <ul className="mt-8 grid gap-3" data-anim-group>
               {system.includes.map((item) => (
                 <li
                   key={item}
@@ -87,7 +87,7 @@ export default async function SystemDetailPage({
             <h2 className="ase-section-title mt-4 text-ase-black">
               What it delivers
             </h2>
-            <div className="mt-8 grid gap-4">
+            <div className="mt-8 grid gap-4" data-anim-group>
               {system.outcomes.map((item) => (
                 <div key={item} className="ase-card-quiet">
                   <p className="text-base leading-7 text-ase-black">{item}</p>
@@ -99,7 +99,7 @@ export default async function SystemDetailPage({
       </section>
 
       <section className="ase-section-light">
-        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20">
+        <div className="ase-container flex flex-col gap-6 py-16 text-center lg:py-20" data-anim-group>
           <span className="ase-kicker text-ase-blue">Evidence</span>
           <h2 className="ase-section-title text-ase-black">
             See where ASE systems are applied.
@@ -120,7 +120,7 @@ export default async function SystemDetailPage({
           <p className="ase-kicker mb-6 text-ase-gray">
             More ASE Building Systems
           </p>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-anim-group>
             {others.slice(0, 4).map((s) => (
               <Link
                 key={s.slug}
